@@ -1,0 +1,175 @@
+mets,rxn1,rxn2,type,maxCosine,cosines,formula1,formula2,degree
+f6p[c],RC02740,RC01830,P/C,0.423441371107104,,g6p-A[c]  <=> f6p[c] ,f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] ,12
+f6p[c],RC02740,RC01827,P/C,0.294615013004999,,g6p-A[c]  <=> f6p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,12
+f6p[c],RC03321,RC01830,P/C,0.423441371107104,,g6p-B[c]  <=> f6p[c] ,f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] ,12
+f6p[c],RC03321,RC01827,P/C,0.294615013004999,,g6p-B[c]  <=> f6p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,12
+f6p[c],RC01830,RC01827,P/C,0.597500826723647,,f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,12
+g6p-B[c],RC03321,RC02736,P/C,0.415809430229973,,g6p-B[c]  <=> f6p[c] ,g6p-B[c] + nadp[c]  -> h[c] + nadph[c] + 6pgl[c] ,5
+g6p-B[c],RC02739,RC02736,P/C,0.415809430229973,,g6p-A[c]  <=> g6p-B[c] ,g6p-B[c] + nadp[c]  -> h[c] + nadph[c] + 6pgl[c] ,5
+amp[c],RC00127,RC00185,P/C,0.27757728560817,,atp[c] + amp[c]  <=> 2 adp[c] ,atp[c] + adn[c]  -> adp[c] + h[c] + amp[c] ,69
+amp[c],RC00127,RC05578,P/C,0.255730102681089,,atp[c] + amp[c]  <=> 2 adp[c] ,atp[c] + glu-L[c] + trnaglu[c]  -> amp[c] + ppi[c] + glutrna[c] ,69
+amp[c],RC00127,RC03652,P/C,0.227106926045622,,atp[c] + amp[c]  <=> 2 adp[c] ,atp[c] + gln-L[c] + trnagln[c]  -> amp[c] + ppi[c] + glntrna[c] ,69
+amp[c],RC00127,RC03658,P/C,0.305276841143129,,atp[c] + amp[c]  <=> 2 adp[c] ,atp[c] + lys-L[c] + trnalys[c]  -> amp[c] + ppi[c] + lystrna[c] ,69
+amp[c],RC00127,RC00181,P/C,0.252367952983668,,atp[c] + amp[c]  <=> 2 adp[c] ,h[c] + amp[c] + h2o[c]  -> nh4[c] + imp[c] ,69
+amp[c],RC05578,RC00181,P/C,0.221284644491998,,atp[c] + glu-L[c] + trnaglu[c]  -> amp[c] + ppi[c] + glutrna[c] ,h[c] + amp[c] + h2o[c]  -> nh4[c] + imp[c] ,69
+amp[c],RC03658,RC00181,P/C,0.287638620806091,,atp[c] + lys-L[c] + trnalys[c]  -> amp[c] + ppi[c] + lystrna[c] ,h[c] + amp[c] + h2o[c]  -> nh4[c] + imp[c] ,69
+g3p[c],RC01070,RC01066,P/C,0.282639515581195,,fdp[c]  <=> dhap[c] + g3p[c] ,2dr5p[c]  <=> g3p[c] + acald[c] ,8
+g3p[c],RC01641,RC01827,P/C,0.597500826723647,,g3p[c] + s7p[c]  <=> xu5p-D[c] + r5p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,8
+g3p[c],RC01641,RC01066,P/C,0.223896084077802,,g3p[c] + s7p[c]  <=> xu5p-D[c] + r5p[c] ,2dr5p[c]  <=> g3p[c] + acald[c] ,8
+g3p[c],RC01830,RC01827,P/C,0.597500826723647,,f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,8
+g3p[c],RC01830,RC01066,P/C,0.223896084077802,,f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] ,2dr5p[c]  <=> g3p[c] + acald[c] ,8
+gtp[c],RC00431,BIO0003,P/C,0.429026643869237,,gtp[c] + oaa[c]  <=> pep[c] + gdp[c] + co2[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,15
+gtp[c],RC00330,BIO0003,P/C,0.322909515508412,,atp[c] + gdp[c]  <=> adp[c] + gtp[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,15
+oaa[c],RC00431,RC00352,P/C,0.211766335917045,,gtp[c] + oaa[c]  <=> pep[c] + gdp[c] + co2[c] ,atp[c] + coa[c] + cit[c]  -> adp[c] + pi[c] + oaa[c] + accoa[c] ,5
+oaa[c],RC00431,RC00355,P/C,0.229297644288476,,gtp[c] + oaa[c]  <=> pep[c] + gdp[c] + co2[c] ,akg[c] + asp-L[c]  <=> oaa[c] + glu-L[c] ,5
+gdp[c],RC00431,RC00328,P/C,0.348251665154161,,gtp[c] + oaa[c]  <=> pep[c] + gdp[c] + co2[c] ,h2o[c] + gdp[c]  -> h[c] + pi[c] + gmp[c] ,18
+pyr[m],RM00209,RM00258,P/C,0.207368207147373,,pyr[m] + coa[m] + nad[m]  -> accoa[m] + co2[m] + nadh[m] ,akg[m] + ala-L[m]  <=> pyr[m] + glu-L[m] ,12
+accoa[m],RM00209,RM00351,P/C,0.340519083595258,,pyr[m] + coa[m] + nad[m]  -> accoa[m] + co2[m] + nadh[m] ,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,35
+accoa[m],RM00351,RMC0088,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,4 coa[m] + 4 nad[m] + 4 h2o[m] + 3 fad[m] + fa16p1n7coa[m]  -> 4 accoa[m] + 4 nadh[m] + 4 h[m] + 3 fadh2[m] + occoa[m] ,35
+accoa[m],RM00351,RMC0089,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,coa[m] + nad[m] + h2o[m] + fad[m] + odecoa[m]  -> accoa[m] + nadh[m] + h[m] + fadh2[m] + fa16p1n7coa[m] ,35
+accoa[m],RM00351,RMC0090,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,5 coa[m] + 5 nad[m] + 5 h2o[m] + 4 fad[m] + vacccoa[m]  -> 5 accoa[m] + 5 nadh[m] + 5 h[m] + 4 fadh2[m] + occoa[m] ,35
+accoa[m],RM00351,RMC0091,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + 2 fad[m] + lnlccoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + 2 fadh2[m] + fa14p2n6coa[m] ,35
+accoa[m],RM00351,RMC0092,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,3 coa[m] + 3 nad[m] + 3 h2o[m] + nadph[m] + 2 fad[m] + fa14p2n6coa[m]  -> 3 accoa[m] + 3 nadh[m] + 2 h[m] + nadp[m] + 2 fadh2[m] + occoa[m] ,35
+accoa[m],RM00351,RMC0093,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + 2 fad[m] + dlnlcgcoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + 2 fadh2[m] + fa16p3n6coa[m] ,35
+accoa[m],RM00351,RMC0094,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,coa[m] + nad[m] + h2o[m] + nadph[m] + fad[m] + fa16p3n6coa[m]  -> accoa[m] + nadh[m] + nadp[m] + fadh2[m] + fa14p2n6coa[m] ,35
+accoa[m],RM00351,RMC0095,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + fad[m] + arachdcoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + fadh2[m] + fa16p3n6coa[m] ,35
+accoa[m],RM00351,RMC0096,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + 2 fad[m] + eicostetcoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + 2 fadh2[m] + fa16p4n3coa[m] ,35
+accoa[m],RM00351,RMC0097,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,4 coa[m] + 4 nad[m] + 4 h2o[m] + 2 nadph[m] + 3 fad[m] + fa16p4n3coa[m]  -> 4 accoa[m] + 4 nadh[m] + 2 h[m] + 2 nadp[m] + 3 fadh2[m] + fa8p1n3coa[m] ,35
+accoa[m],RM00351,RMC0098,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + fad[m] + tmndnccoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + fadh2[m] + fa16p4n3coa[m] ,35
+accoa[m],RM00351,RMC0100,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + fad[m] + fa8p1n3coa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + fadh2[m] + btcoa[m] ,35
+accoa[m],RM00351,RMC0103,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,coa[m] + nad[m] + h2o[m] + fad[m] + fa17p0isocoa[m]  -> accoa[m] + nadh[m] + h[m] + fadh2[m] + fa15p0isocoa[m] ,35
+accoa[m],RM00351,RMC0104,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,3 coa[m] + 3 nad[m] + 3 h2o[m] + 3 fad[m] + fa15p0isocoa[m]  -> 3 accoa[m] + 3 nadh[m] + 3 h[m] + 3 fadh2[m] + fa9p0isocoa[m] ,35
+accoa[m],RM00351,RMC0105,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + 2 fad[m] + fa9p0isocoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + 2 fadh2[m] + ivcoa[m] ,35
+accoa[m],RM00351,RMC0106,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,coa[m] + nad[m] + h2o[m] + fad[m] + fa19c11coa[m]  -> accoa[m] + nadh[m] + h[m] + fadh2[m] + fa17c9coa[m] ,35
+accoa[m],RM00351,RMC0107,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,3 coa[m] + 3 nad[m] + 3 h2o[m] + 3 fad[m] + fa17c9coa[m]  -> 3 accoa[m] + 3 nadh[m] + 3 h[m] + 3 fadh2[m] + fa11c3coa[m] ,35
+accoa[m],RM00351,RMC0126,P/C,0.257813234766866,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,coa[m] + nad[m] + h2o[m] + fad[m] + stcoa[m]  -> accoa[m] + nadh[m] + h[m] + fadh2[m] + pmtcoa[m] ,35
+accoa[c],RC01978,RC03552,P/C,0.363271878610942,,h2o[c] + accoa[c] + aacoa[c]  -> h[c] + coa[c] + hmgcoa[c] ,accoa[c] + Nlys[c]  <=> h[c] + coa[c] + Naclys[c] ,40
+accoa[c],RCC0019,RC03552,P/C,0.363704525616254,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,accoa[c] + Nlys[c]  <=> h[c] + coa[c] + Naclys[c] ,40
+accoa[c],RC02058,RC03552,P/C,0.270926143382104,,accoa[c] + gam6p[c]  -> h[c] + coa[c] + acgam6p[c] ,accoa[c] + Nlys[c]  <=> h[c] + coa[c] + Naclys[c] ,40
+oaa[m],RM00351,RM00342,P/C,0.411474101112489,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,nad[m] + mal-L[m]  <=> nadh[m] + h[m] + oaa[m] ,4
+cit[m],RM00351,RMC0001,P/C,0.404391889848461,,accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] ,cit[m]  <=> icit[m] ,5
+q[m],RM02164,RM02161,P/C,0.805107311734685,,succ[m] + q[m]  -> qh2[m] + fum[m] ,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,12
+q[m],RMC0006,RM02161,P/C,0.725574680926681,,nadh[m] + 5 h[m] + q[m]  -> 4 h[c] + nad[m] + qh2[m] ,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,12
+q[m],RM02161,RMC0007,P/C,0.725574680926681,,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,h[c] + nadh[m] + q[m]  -> nad[m] + qh2[m] ,12
+q[m],RM02161,RMC0008,P/C,0.725574680926681,,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,nadh[m] + h[m] + q[m]  -> nad[m] + qh2[m] ,12
+qh2[m],RM02164,RM02161,P/C,0.805107311734685,,succ[m] + q[m]  -> qh2[m] + fum[m] ,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,9
+qh2[m],RMC0006,RM02161,P/C,0.725574680926681,,nadh[m] + 5 h[m] + q[m]  -> 4 h[c] + nad[m] + qh2[m] ,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,9
+qh2[m],RM02161,RMC0007,P/C,0.725574680926681,,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,h[c] + nadh[m] + q[m]  -> nad[m] + qh2[m] ,9
+qh2[m],RM02161,RMC0008,P/C,0.725574680926681,,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,nadh[m] + h[m] + q[m]  -> nad[m] + qh2[m] ,9
+fum[m],RM02164,RM01082,P/C,0.325678505431294,,succ[m] + q[m]  -> qh2[m] + fum[m] ,mal-L[m]  <=> h2o[m] + fum[m] ,8
+6pgl[c],RC02736,RC02035,P/C,0.310545598955383,,g6p-B[c] + nadp[c]  -> h[c] + nadph[c] + 6pgl[c] ,h2o[c] + 6pgl[c]  -> h[c] + 6pgc[c] ,2
+6pgc[c],RC02035,RC01528,P/C,0.236161974244792,,h2o[c] + 6pgl[c]  -> h[c] + 6pgc[c] ,nadp[c] + 6pgc[c]  -> co2[c] + nadph[c] + ru5p-D[c] ,3
+s7p[c],RC01641,RC01827,P/C,0.597500826723647,,g3p[c] + s7p[c]  <=> xu5p-D[c] + r5p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,4
+e4p[c],RC01830,RC01827,P/C,0.597500826723647,,f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] ,g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] ,3
+ficytC[m],RM02161,RM00081,P/C,0.701882771479615,,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,8 h[m] + 4 focytC[m] + o2[m]  -> 4 h[c] + 2 h2o[m] + 4 ficytC[m] ,5
+focytC[m],RM02161,RM00081,P/C,0.701882771479615,,2 h[m] + qh2[m] + 2 ficytC[m]  -> 4 h[c] + q[m] + 2 focytC[m] ,8 h[m] + 4 focytC[m] + o2[m]  -> 4 h[c] + 2 h2o[m] + 4 ficytC[m] ,7
+focytC[m],RM00081,RM02480,P/C,0.315962093857402,,8 h[m] + 4 focytC[m] + o2[m]  -> 4 h[c] + 2 h2o[m] + 4 ficytC[m] ,apocytc[m] + pheme[m]  -> focytC[m] ,7
+glu-L[c],RC07396,RC00573,P/C,0.243073574138845,,glu-L[c] + 2kmb[c]  -> akg[c] + met-L[c] ,atp[c] + h2o[c] + gln-L[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + glu-L[c] + ctp[c] ,33
+glu-L[c],RC00734,RC00573,P/C,0.243073574138845,,akg[c] + tyr-L[c]  <=> glu-L[c] + 34hpp[c] ,atp[c] + h2o[c] + gln-L[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + glu-L[c] + ctp[c] ,33
+glu-L[c],RC00694,RC00573,P/C,0.243073574138845,,akg[c] + phe-L[c]  <=> glu-L[c] + phpyr[c] ,atp[c] + h2o[c] + gln-L[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + glu-L[c] + ctp[c] ,33
+glu-L[m],RM01648,RM00258,P/C,0.231206999741968,,akg[m] + 4abut[m]  -> sucsal[m] + glu-L[m] ,akg[m] + ala-L[m]  <=> pyr[m] + glu-L[m] ,27
+glu-L[m],RM04188,RM00258,P/C,0.231206999741968,,glu-L[m] + 2mop[m]  -> akg[m] + 3aib[m] ,akg[m] + ala-L[m]  <=> pyr[m] + glu-L[m] ,27
+glu-L[m],RM00908,RM00258,P/C,0.231206999741968,,akg[m] + ala-B[m]  <=> glu-L[m] + msa[m] ,akg[m] + ala-L[m]  <=> pyr[m] + glu-L[m] ,27
+gam6p[c],RC00768,RC02058,P/C,0.612605434668005,,f6p[c] + gln-L[c]  -> glu-L[c] + gam6p[c] ,accoa[c] + gam6p[c]  -> h[c] + coa[c] + acgam6p[c] ,6
+gam6p[c],RC01961,RC02058,P/C,0.613175977760319,,atp[c] + gam[c]  -> adp[c] + h[c] + gam6p[c] ,accoa[c] + gam6p[c]  -> h[c] + coa[c] + acgam6p[c] ,6
+ala-L[c],RC03038,RCC0142,P/C,0.30644428272425,,atp[c] + ala-L[c] + trnaala[c]  -> amp[c] + ppi[c] + alatrna[c] ,2 atp[c] + h2o[c] + 2 cys-L[c] + 2 trdrd[c] + cpmp[c]  -> 4 h[c] + 2 amp[c] + 2 ppi[c] + 2 ala-L[c] + 2 trdox[c] + molybd[c] ,15
+dcamp[c],RC01083,RC01135,P/C,0.440849698973326,,dcamp[c]  -> amp[c] + fum[c] ,gtp[c] + asp-L[c] + imp[c]  -> 2 h[c] + pi[c] + gdp[c] + dcamp[c] ,2
+fum[c],RC01083,RC01082,P/C,0.207362941264932,,dcamp[c]  -> amp[c] + fum[c] ,mal-L[c]  <=> h2o[c] + fum[c] ,11
+fum[c],RC04559,RC01082,P/C,0.207362941264932,,25aics[c]  -> fum[c] + aicar[c] ,mal-L[c]  <=> h2o[c] + fum[c] ,11
+hcys-L[c],RC01290,RC00192,P/C,0.710481692930967,,ser-L[c] + hcys-L[c]  -> h2o[c] + cyst-L[c] ,h2o[c] + ahcys[c]  -> hcys-L[c] + adn[c] ,4
+5mthf[c],RC00946,RC01224,P/C,0.609931610436158,,hcys-L[c] + 5mthf[c]  -> h[c] + met-L[c] + thf[c] ,2 h[c] + nadph[c] + mlthf[c]  -> nadp[c] + 5mthf[c] ,4
+5mthf[c],RC00946,RC07168,P/C,0.609931610436158,,hcys-L[c] + 5mthf[c]  -> h[c] + met-L[c] + thf[c] ,2 h[c] + nadh[c] + mlthf[c]  -> nad[c] + 5mthf[c] ,4
+met-L[c],RC00946,RC00177,P/C,0.293263547288988,,hcys-L[c] + 5mthf[c]  -> h[c] + met-L[c] + thf[c] ,atp[c] + h2o[c] + met-L[c]  -> pi[c] + ppi[c] + amet[c] ,8
+ahcys[c],RC00192,RC02037,P/C,0.465621903520335,,h2o[c] + ahcys[c]  -> hcys-L[c] + adn[c] ,amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] ,15
+ahcys[c],RC00192,RCC0021,P/C,0.507813358622038,,h2o[c] + ahcys[c]  -> hcys-L[c] + adn[c] ,2 amet[c] + methamp[c]  -> 2 h[c] + 2 ahcys[c] + cholp[c] ,15
+amet[c],RC00177,RC02037,P/C,0.569789300587654,,atp[c] + h2o[c] + met-L[c]  -> pi[c] + ppi[c] + amet[c] ,amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] ,16
+amet[c],RC00177,RCC0021,P/C,0.460663269582792,,atp[c] + h2o[c] + met-L[c]  -> pi[c] + ppi[c] + amet[c] ,2 amet[c] + methamp[c]  -> 2 h[c] + 2 ahcys[c] + cholp[c] ,16
+ivcoa[m],RMC0011,RM04096,P/C,0.366269350862776,,coa[m] + nad[m] + 4mop[m]  -> co2[m] + nadh[m] + ivcoa[m] ,ivcoa[m] + etfox[m]  -> 3mb2coa[m] + etfrd[m] ,4
+ivcoa[m],RM04096,RMC0105,P/C,0.204113332978664,,ivcoa[m] + etfox[m]  -> 3mb2coa[m] + etfrd[m] ,2 coa[m] + 2 nad[m] + 2 h2o[m] + 2 fad[m] + fa9p0isocoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + 2 fadh2[m] + ivcoa[m] ,4
+3mb2coa[m],RM04096,RM04138,P/C,0.213892985033434,,ivcoa[m] + etfox[m]  -> 3mb2coa[m] + etfrd[m] ,atp[m] + hco3[m] + 3mb2coa[m]  -> h[m] + adp[m] + pi[m] + 3mgcoa[m] ,2
+3hibutcoa[m],RM04224,RM05064,P/C,0.54181245262112,,h2o[m] + 2mp2coa[m]  -> 3hibutcoa[m] ,h2o[m] + 3hibutcoa[m]  -> coa[m] + h[m] + 3hmp[m] ,2
+hmgcoa[c],RC01978,RC02082,P/C,0.2032545584608,,h2o[c] + accoa[c] + aacoa[c]  -> h[c] + coa[c] + hmgcoa[c] ,2 h[c] + 2 nadph[c] + hmgcoa[c]  -> 2 nadp[c] + coa[c] + mev-R[c] ,3
+34hpp[c],RC00734,RC02521,P/C,0.437593126043506,,akg[c] + tyr-L[c]  <=> glu-L[c] + 34hpp[c] ,o2[c] + 34hpp[c]  -> co2[c] + hgentis[c] ,5
+phpyr[c],RC00694,RC01372,P/C,0.437593126043506,,akg[c] + phe-L[c]  <=> glu-L[c] + phpyr[c] ,o2[c] + phpyr[c]  -> co2[c] + 2hyoxplac[c] ,5
+cholp[c],RC01890,RCC0021,P/C,0.631440178504111,,h[c] + cholp[c] + ctp[c]  -> ppi[c] + cdpchol[c] ,2 amet[c] + methamp[c]  -> 2 h[c] + 2 ahcys[c] + cholp[c] ,5
+ctp[c],RC01799,RC00570,P/C,0.259224683868232,,h[c] + pa_pl[c] + ctp[c]  -> ppi[c] + cdpdag[c] ,atp[c] + cdp[c]  <=> adp[c] + ctp[c] ,10
+ctp[c],RC00571,BIO0003,P/C,0.240322150587729,,atp[c] + nh4[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + ctp[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,10
+ctp[c],RC00573,BIO0003,P/C,0.240322150587729,,atp[c] + h2o[c] + gln-L[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + glu-L[c] + ctp[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,10
+ctp[c],RC00570,BIO0003,P/C,0.322909515508412,,atp[c] + cdp[c]  <=> adp[c] + ctp[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,10
+dag_pl[c],RC02239,RC02057,P/C,0.221548350905133,,h2o[c] + pa_pl[c]  -> pi[c] + dag_pl[c] ,dag_pl[c] + cdpea[c]  <=> h[c] + cmp[c] + pe[c] ,7
+dag_pl[c],RC02057,RC03435,P/C,0.219641996542157,,dag_pl[c] + cdpea[c]  <=> h[c] + cmp[c] + pe[c] ,h2o[c] + pail45p[c]  -> h[c] + dag_pl[c] + mi145p[c] ,7
+dag_pl[c],RC02057,RC03332,P/C,0.219641996542157,,dag_pl[c] + cdpea[c]  <=> h[c] + cmp[c] + pe[c] ,h2o[c] + pail[c]  -> h[c] + dag_pl[c] + mi1p-D[c] ,7
+ethamp[c],RC02037,RC02464,P/C,0.318065858870702,,amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] ,sph1p_ce[c]  -> ethamp[c] + m15hxdcal[c] ,7
+pmtcoa[c],RC07758,RCC0126,P/C,0.399842366054898,,h[c] + pmtcoa[c] + malcoa[c]  -> co2[c] + coa[c] + 3oodcoa[c] ,h2o[c] + nad[c] + coa[c] + o2[c] + stcoa[c]  -> h[c] + nadh[c] + accoa[c] + h2o2[c] + pmtcoa[c] ,11
+malcoa[c],RCC0019,RCC0063,P/C,0.674902391693208,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,3 h[c] + 2 nadph[c] + malcoa[c] + strdnccoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + eicostetcoa[c] ,13
+malcoa[c],RCC0019,RCC0064,P/C,0.674902391693208,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,3 h[c] + 2 nadph[c] + malcoa[c] + lnlncgcoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + dlnlcgcoa[c] ,13
+malcoa[c],RCC0019,RCC0070,P/C,0.761844021227047,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] ,13
+malcoa[c],RCC0019,RCC0072,P/C,0.761844021227047,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,3 h[c] + 2 nadph[c] + malcoa[c] + fa13p0iso[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + fa15p0iso[c] ,13
+malcoa[c],RCC0019,RCC0073,P/C,0.761844021227047,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,3 h[c] + 2 nadph[c] + malcoa[c] + fa15p0iso[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + fa17p0iso[c] ,13
+malcoa[c],RCC0019,RCC0124,P/C,0.674902391693208,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,9 h[c] + 6 nadph[c] + 3 malcoa[c] + stcoa[c]  -> 3 h2o[c] + 3 co2[c] + 6 nadp[c] + 3 coa[c] + lgnccoa[c] ,13
+malcoa[c],RCC0019,RCC0210,P/C,0.674902391693208,,atp[c] + accoa[c] + hco3[c]  -> adp[c] + h[c] + pi[c] + malcoa[c] ,6 h[c] + 4 nadph[c] + 2 malcoa[c] + lgnccoa[c]  -> 2 h2o[c] + 2 co2[c] + 4 nadp[c] + 2 coa[c] + fa28p0coa[c] ,13
+methamp[c],RC02037,RCC0021,P/C,0.569600818331265,,amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] ,2 amet[c] + methamp[c]  -> 2 h[c] + 2 ahcys[c] + cholp[c] ,2
+ins[c],RC01863,RC01560,P/C,0.508164616176076,,pi[c] + ins[c]  <=> r1p[c] + hxan[c] ,h[c] + h2o[c] + adn[c]  -> nh4[c] + ins[c] ,4
+din[c],RC02748,RC02556,P/C,0.508164616176076,,pi[c] + din[c]  <=> hxan[c] + 2dr1p[c] ,h[c] + h2o[c] + dad-2[c]  -> nh4[c] + din[c] ,3
+dad-2[c],RC02557,RC02556,P/C,0.508164616176076,,pi[c] + dad-2[c]  <=> ade[c] + 2dr1p[c] ,h[c] + h2o[c] + dad-2[c]  -> nh4[c] + din[c] ,4
+datp[c],RC01137,BIO0004,P/C,0.309397287122737,,atp[c] + dadp[c]  <=> adp[c] + datp[c] ,0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] ,3
+xmp[c],RC01130,RC01230,P/C,0.239644988901667,,h2o[c] + nad[c] + imp[c]  -> h[c] + nadh[c] + xmp[c] ,atp[c] + nh4[c] + xmp[c]  -> 2 h[c] + amp[c] + ppi[c] + gmp[c] ,6
+xmp[c],RC01130,RC01231,P/C,0.239644988901667,,h2o[c] + nad[c] + imp[c]  -> h[c] + nadh[c] + xmp[c] ,atp[c] + h2o[c] + gln-L[c] + xmp[c]  -> 2 h[c] + amp[c] + ppi[c] + glu-L[c] + gmp[c] ,6
+dgtp[c],RC01857,BIO0004,P/C,0.309397287122737,,atp[c] + dgdp[c]  -> adp[c] + dgtp[c] ,0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] ,3
+orot[c],RM01868,RC01870,P/C,0.207312397120605,,q[m] + dhor-S[c]  -> qh2[m] + orot[c] ,ppi[c] + orot5p[c]  <=> prpp[c] + orot[c] ,3
+utp[c],RC00156,BIO0003,P/C,0.322909515508412,,atp[c] + udp[c]  <=> adp[c] + utp[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,8
+utp[c],RC00416,BIO0003,P/C,0.230503569066053,,h[c] + utp[c] + acgam1p[c]  <=> ppi[c] + uacgam[c] ,0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] ,8
+dctp[c],RC02326,BIO0004,P/C,0.309397287122737,,atp[c] + dcdp[c]  -> adp[c] + dctp[c] ,0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] ,2
+dttp[c],RC02093,BIO0004,P/C,0.309397287122737,,atp[c] + dtdp[c]  <=> adp[c] + dttp[c] ,0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] ,3
+msa[m],RM00908,RM01608,P/C,0.217099278516508,,akg[m] + ala-B[m]  <=> glu-L[m] + msa[m] ,nad[m] + 3hpp[m]  -> nadh[m] + h[m] + msa[m] ,4
+3hpcoa[m],RM03045,RM03158,P/C,0.54181245262112,,h2o[m] + prpncoa[m]  -> 3hpcoa[m] ,h2o[m] + 3hpcoa[m]  -> coa[m] + h[m] + 3hpp[m] ,2
+ipdp[c],RC01121,RC05556,P/C,0.247223549792247,,atp[c] + 5dpmev[c]  -> adp[c] + pi[c] + co2[c] + ipdp[c] ,19 ipdp[c] + frdp[c]  -> 19 ppi[c] + dedoldp[c] ,7
+naglc2p[c],RC05969,RC05970,P/C,0.296269082825675,,dolp[c] + uacgam[c]  -> ump[c] + naglc2p[c] ,uacgam[c] + naglc2p[c]  -> h[c] + udp[c] + chito2pdol[c] ,2
+chito2pdol[c],RC05970,RC05972,P/C,0.433071211458115,,uacgam[c] + naglc2p[c]  -> h[c] + udp[c] + chito2pdol[c] ,chito2pdol[c] + gdpmann[c]  -> h[c] + gdp[c] + mpdol[c] ,2
+gdpmann[c],RC05972,RC00885,P/C,0.88856109046589,,chito2pdol[c] + gdpmann[c]  -> h[c] + gdp[c] + mpdol[c] ,h[c] + gtp[c] + man1p[c]  -> ppi[c] + gdpmann[c] ,7
+gdpmann[c],RC05973,RC00885,P/C,0.779410925866119,,gdpmann[c] + mpdol[c]  -> h[c] + gdp[c] + m1mpdol[c] ,h[c] + gtp[c] + man1p[c]  -> ppi[c] + gdpmann[c] ,7
+gdpmann[c],RC06238,RC00885,P/C,0.779410925866119,,gdpmann[c] + m1mpdol[c]  -> h[c] + gdp[c] + m2mpdol[c] ,h[c] + gtp[c] + man1p[c]  -> ppi[c] + gdpmann[c] ,7
+gdpmann[c],RCC0037,RC00885,P/C,0.420349242047196,,2 gdpmann[c] + m2mpdol[c]  -> 2 h[c] + 2 gdp[c] + m4mpdol[c] ,h[c] + gtp[c] + man1p[c]  -> ppi[c] + gdpmann[c] ,7
+gdpmann[c],RC01009,RC00885,P/C,0.586272423831442,,dolp[c] + gdpmann[c]  -> gdp[c] + dolmanp[c] ,h[c] + gtp[c] + man1p[c]  -> ppi[c] + gdpmann[c] ,7
+mpdol[c],RC05972,RC05973,P/C,0.862649673344872,,chito2pdol[c] + gdpmann[c]  -> h[c] + gdp[c] + mpdol[c] ,gdpmann[c] + mpdol[c]  -> h[c] + gdp[c] + m1mpdol[c] ,2
+m2mpdol[c],RC06238,RCC0037,P/C,0.428296108639138,,gdpmann[c] + m1mpdol[c]  -> h[c] + gdp[c] + m2mpdol[c] ,2 gdpmann[c] + m2mpdol[c]  -> 2 h[c] + 2 gdp[c] + m4mpdol[c] ,2
+udpg[c],RC01005,RC00289,P/C,0.811145061649767,,dolp[c] + udpg[c]  -> udp[c] + dolglcp[c] ,g1p[c] + h[c] + utp[c]  -> ppi[c] + udpg[c] ,10
+cholcoads[c],RC08735,RCC0050,P/C,0.692051466068343,,o2[c] + cholcoas[c]  -> h2o2[c] + cholcoads[c] ,h2o[c] + nad[c] + cholcoads[c]  -> h[c] + nadh[c] + cholcoaone[c] ,2
+cholcoaone[c],RCC0050,RC03719,P/C,0.5369264529785,,h2o[c] + nad[c] + cholcoads[c]  -> h[c] + nadh[c] + cholcoaone[c] ,coa[c] + cholcoaone[c]  -> ppcoa[c] + cholcoa[c] ,2
+man6p[c],RC01326,RC01818,P/C,0.234741099054269,,atp[c] + man[c]  -> adp[c] + h[c] + man6p[c] ,man1p[c]  <=> man6p[c] ,3
+man1p[c],RC01818,RC00885,P/C,0.634268369450233,,man1p[c]  <=> man6p[c] ,h[c] + gtp[c] + man1p[c]  -> ppi[c] + gdpmann[c] ,2
+ficytb[c],RC00100,RC02222,P/C,0.580774015810685,,h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] ,o2[c] + 2 focytb[c] + stcoa[c]  -> 2 h2o[c] + 2 ficytb[c] + odecoa[c] ,12
+ficytb[c],RC00100,RCC0061,P/C,0.228898886594997,,h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] ,o2[c] + 2 focytb[c] + odecoa[c]  -> 2 h2o[c] + 2 ficytb[c] + lnlccoa[c] ,12
+ficytb[c],RC00100,RCC0069,P/C,0.29750816655484,,h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] ,o2[c] + pmtcoa[c] + 2 focytb[c]  -> 2 h2o[c] + 2 ficytb[c] + fa16p1n7coa[c] ,12
+focytb[c],RC00100,RC02222,P/C,0.580774015810685,,h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] ,o2[c] + 2 focytb[c] + stcoa[c]  -> 2 h2o[c] + 2 ficytb[c] + odecoa[c] ,12
+focytb[c],RC00100,RCC0061,P/C,0.228898886594997,,h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] ,o2[c] + 2 focytb[c] + odecoa[c]  -> 2 h2o[c] + 2 ficytb[c] + lnlccoa[c] ,12
+focytb[c],RC00100,RCC0069,P/C,0.29750816655484,,h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] ,o2[c] + pmtcoa[c] + 2 focytb[c]  -> 2 h2o[c] + 2 ficytb[c] + fa16p1n7coa[c] ,12
+ddcacoa[c],RC03858,RCC0167,P/C,0.419546240682642,,coa[c] + 3otdcoa[c]  -> accoa[c] + ddcacoa[c] ,o2[c] + ddcacoa[c]  -> h2o2[c] + dd2coa[c] ,4
+tdcoa[c],RC03991,RCC0166,P/C,0.419546240682642,,coa[c] + 3ohdcoa[c]  -> accoa[c] + tdcoa[c] ,o2[c] + tdcoa[c]  -> h2o2[c] + td2coa[c] ,6
+crm_ce[c],RC06519,RC01497,P/C,0.456141021249011,,h[c] + nadph[c] + o2[c] + dhcrm_ce[c]  -> 2 h2o[c] + nadp[c] + crm_ce[c] ,udpg[c] + crm_ce[c]  -> h[c] + udp[c] + gluside_ce[c] ,12
+crm_ce[c],RCC0060,RC01497,P/C,0.456141021249011,,h[c] + nadh[c] + o2[c] + dhcrm_ce[c]  -> 2 h2o[c] + nad[c] + crm_ce[c] ,udpg[c] + crm_ce[c]  -> h[c] + udp[c] + gluside_ce[c] ,12
+3hodcoa[c],RC07759,RC07760,P/C,0.374757346537955,,h[c] + nadph[c] + 3oodcoa[c]  -> nadp[c] + 3hodcoa[c] ,3hodcoa[c]  -> h2o[c] + od2coa[c] ,2
+stcoa[c],RCC0124,RCC0125,P/C,0.412245389710732,,9 h[c] + 6 nadph[c] + 3 malcoa[c] + stcoa[c]  -> 3 h2o[c] + 3 co2[c] + 6 nadp[c] + 3 coa[c] + lgnccoa[c] ,3 h2o[c] + 3 nad[c] + 3 coa[c] + 3 o2[c] + lgnccoa[c]  -> 3 h[c] + 3 nadh[c] + 3 accoa[c] + 3 h2o2[c] + stcoa[c] ,9
+eicostetcoa[c],RCC0063,RCC0096,P/C,0.420804806043524,,3 h[c] + 2 nadph[c] + malcoa[c] + strdnccoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + eicostetcoa[c] ,2 h2o[c] + 2 nad[c] + 2 coa[c] + 2 o2[c] + eicostetcoa[c]  -> 2 h[c] + 2 nadh[c] + 2 accoa[c] + 2 h2o2[c] + fa16p4n3coa[c] ,7
+dlnlcgcoa[c],RCC0064,RCC0093,P/C,0.420804806043524,,3 h[c] + 2 nadph[c] + malcoa[c] + lnlncgcoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + dlnlcgcoa[c] ,2 h2o[c] + 2 nad[c] + 2 coa[c] + 2 o2[c] + dlnlcgcoa[c]  -> 2 h[c] + 2 nadh[c] + 2 accoa[c] + 2 h2o2[c] + fa16p3n6coa[c] ,7
+fa16p1n7coa[c],RCC0069,RCC0070,P/C,0.493184449254954,,o2[c] + pmtcoa[c] + 2 focytb[c]  -> 2 h2o[c] + 2 ficytb[c] + fa16p1n7coa[c] ,3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] ,8
+fa16p1n7coa[c],RCC0070,RCC0089,P/C,0.420804806043524,,3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] ,h2o[c] + nad[c] + coa[c] + o2[c] + odecoa[c]  -> h[c] + nadh[c] + accoa[c] + h2o2[c] + fa16p1n7coa[c] ,8
+vacccoa[c],RCC0070,RCC0090,P/C,0.420804806043524,,3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] ,5 h2o[c] + 5 nad[c] + 5 coa[c] + 4 o2[c] + vacccoa[c]  -> 5 h[c] + 5 nadh[c] + 5 accoa[c] + 4 h2o2[c] + occoa[c] ,6
+glucys[c],RC00894,RC00497,P/C,0.261174647006175,,atp[c] + glu-L[c] + cys-L[c]  -> adp[c] + h[c] + pi[c] + glucys[c] ,atp[c] + gly[c] + glucys[c]  -> adp[c] + h[c] + pi[c] + gthrd[c] ,4
+amp[m],RM03658,RM00127,P/C,0.305276841143129,,atp[m] + lys-L[m] + trnalys[m]  -> ppi[m] + amp[m] + lystrna[m] ,atp[m] + amp[m]  -> 2 adp[m] ,23
+hdd2coa[c],RCC0165,RCC0083,P/C,0.692051466068343,,o2[c] + pmtcoa[c]  -> h2o2[c] + hdd2coa[c] ,h2o[c] + nad[c] + hdd2coa[c]  -> h[c] + nadh[c] + 3ohdcoa[c] ,2
+3ohdcoa[c],RCC0083,RC03991,P/C,0.5369264529785,,h2o[c] + nad[c] + hdd2coa[c]  -> h[c] + nadh[c] + 3ohdcoa[c] ,coa[c] + 3ohdcoa[c]  -> accoa[c] + tdcoa[c] ,2
+td2coa[c],RCC0166,RCC0084,P/C,0.692051466068343,,o2[c] + tdcoa[c]  -> h2o2[c] + td2coa[c] ,h2o[c] + nad[c] + td2coa[c]  -> h[c] + nadh[c] + 3otdcoa[c] ,2
+3otdcoa[c],RCC0084,RC03858,P/C,0.5369264529785,,h2o[c] + nad[c] + td2coa[c]  -> h[c] + nadh[c] + 3otdcoa[c] ,coa[c] + 3otdcoa[c]  -> accoa[c] + ddcacoa[c] ,2
+dd2coa[c],RCC0167,RCC0085,P/C,0.692051466068343,,o2[c] + ddcacoa[c]  -> h2o2[c] + dd2coa[c] ,h2o[c] + nad[c] + dd2coa[c]  -> h[c] + nadh[c] + 3oddcoa[c] ,2
+3oddcoa[c],RCC0085,RC04742,P/C,0.5369264529785,,h2o[c] + nad[c] + dd2coa[c]  -> h[c] + nadh[c] + 3oddcoa[c] ,coa[c] + 3oddcoa[c]  -> accoa[c] + dcacoa[c] ,2
+dcacoa[c],RC04742,RCC0168,P/C,0.419546240682642,,coa[c] + 3oddcoa[c]  -> accoa[c] + dcacoa[c] ,o2[c] + dcacoa[c]  -> h2o2[c] + dc2coa[c] ,2
+dc2coa[c],RCC0168,RCC0086,P/C,0.692051466068343,,o2[c] + dcacoa[c]  -> h2o2[c] + dc2coa[c] ,h2o[c] + nad[c] + dc2coa[c]  -> h[c] + nadh[c] + 3odcoa[c] ,2
+3odcoa[c],RCC0086,RC03778,P/C,0.5369264529785,,h2o[c] + nad[c] + dc2coa[c]  -> h[c] + nadh[c] + 3odcoa[c] ,coa[c] + 3odcoa[c]  -> accoa[c] + occoa[c] ,2
+lgnccoa[c],RCC0124,RCC0125,P/C,0.412245389710732,,9 h[c] + 6 nadph[c] + 3 malcoa[c] + stcoa[c]  -> 3 h2o[c] + 3 co2[c] + 6 nadp[c] + 3 coa[c] + lgnccoa[c] ,3 h2o[c] + 3 nad[c] + 3 coa[c] + 3 o2[c] + lgnccoa[c]  -> 3 h[c] + 3 nadh[c] + 3 accoa[c] + 3 h2o2[c] + stcoa[c] ,5
+ascr1coa[c],RCC0206,RCC0219,P/C,0.692051466068343,,h2o[c] + nad[c] + coa[c] + ascr3coa[c]  -> h[c] + nadh[c] + accoa[c] + ascr1coa[c] ,o2[c] + ascr1coa[c]  -> h2o2[c] + ascr7coa[c] ,3
+ascr7coa[c],RCC0219,RCC0234,P/C,0.692051466068343,,o2[c] + ascr1coa[c]  -> h2o2[c] + ascr7coa[c] ,2 h2o[c] + nad[c] + ascr7coa[c]  -> h[c] + nadh[c] + co2[c] + coa[c] + ascr2[c] ,3
+akg[m],RMC0003,RM00243,P/C,0.368571695313184,,coa[m] + nad[m] + akg[m]  -> co2[m] + nadh[m] + succoa[m] ,nad[m] + h2o[m] + glu-L[m]  -> nadh[m] + h[m] + akg[m] + nh4[m] ,25
+akg[m],RMC0003,RM00248,P/C,0.368571695313184,,coa[m] + nad[m] + akg[m]  -> co2[m] + nadh[m] + succoa[m] ,h2o[m] + nadp[m] + glu-L[m]  -> h[m] + akg[m] + nadph[m] + nh4[m] ,25
+adn[c],RC00192,RC00185,P/C,0.620153283286658,,h2o[c] + ahcys[c]  -> hcys-L[c] + adn[c] ,atp[c] + adn[c]  -> adp[c] + h[c] + amp[c] ,6
+adn[c],RC01561,RC01560,P/C,0.508164616176076,,pi[c] + adn[c]  <=> r1p[c] + ade[c] ,h[c] + h2o[c] + adn[c]  -> nh4[c] + ins[c] ,6

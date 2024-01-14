@@ -1,0 +1,1225 @@
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ala-L[c]'}    -0.49744    0.30644      0.15244   
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>        <strong>delta</strong>         <strong>rxn</strong>                                                                     <strong>formula</strong>                                                                 <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>_________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+      0.74111      0.50973    0.23138    {'RC03038'}    {'atp[c] + ala-L[c] + trnaala[c]  -> amp[c] + ppi[c] + alatrna[c] '                                                             }     false 
+    0.0061457    0.0061457          0    {'RCC0142'}    {'2 atp[c] + h2o[c] + 2 cys-L[c] + 2 trdrd[c] + cpmp[c]  -> 4 h[c] + 2 amp[c] + 2 ppi[c] + 2 ala-L[c] + 2 trdox[c] + molybd[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'msa[m]'}    0.45719    0.2171      0.099256  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>         <strong>rxn</strong>                             <strong>formula</strong>                          <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>__________________________________________________</strong>    <strong>_______</strong>
+
+          0    0.16191    0.16191    {'RM00908'}    {'akg[m] + ala-B[m]  <=> glu-L[m] + msa[m] '     }     true  
+    0.40279    0.29528    0.10751    {'RM01608'}    {'nad[m] + 3hpp[m]  <=> nadh[m] + h[m] + msa[m] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'utp[c]'}    0.12608    0.32291      0.040712  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                                                                      <strong>formula</strong>                                                                                  <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>___________________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.12099    0.10195    0.019042    {'RC00416'}    {'h[c] + utp[c] + acgam1p[c]  <=> ppi[c] + uacgam[c] '                                                                                                            }     false 
+    0.25069    0.17242    0.078268    {'BIO0003'}    {'0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'glu-L[c]'}    0.0201     0.24307     0.0048857  
+
+
+ans =
+
+  4×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>          <strong>rxn</strong>                                                <strong>formula</strong>                                             <strong>bigJump</strong>
+    <strong>________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+        0.01          0.01            0    {'RC07396'}    {'glu-L[c] + 2kmb[c]  -> akg[c] + met-L[c] '                                           }     false 
+    0.048302      0.023061     0.025241    {'RC00734'}    {'akg[c] + tyr-L[c]  <=> glu-L[c] + 34hpp[c] '                                         }     false 
+           0    -0.0029613    0.0029613    {'RC00694'}    {'akg[c] + phe-L[c]  <=> glu-L[c] + phpyr[c] '                                         }     true  
+    0.033623          0.01     0.023623    {'RC00573'}    {'atp[c] + h2o[c] + gln-L[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + glu-L[c] + ctp[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'glu-L[m]'}    0.2891     0.23121      0.066841  
+
+
+ans =
+
+  4×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                            <strong>formula</strong>                         <strong>bigJump</strong>
+    <strong>______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>________________________________________________</strong>    <strong>_______</strong>
+
+      0.01       0.01           0    {'RM01648'}    {'akg[m] + 4abut[m]  <=> sucsal[m] + glu-L[m] '}     false 
+         0          0           0    {'RM04188'}    {'glu-L[m] + 2mop[m]  <=> akg[m] + 3aib[m] '   }     true  
+         0    0.16191     0.16191    {'RM00908'}    {'akg[m] + ala-B[m]  <=> glu-L[m] + msa[m] '   }     true  
+    0.1343    0.11718    0.017116    {'RM00258'}    {'akg[m] + ala-L[m]  <=> pyr[m] + glu-L[m] '   }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'amp[c]'}    -4.5377    0.30528       1.3853   
+
+
+ans =
+
+  6×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                      <strong>formula</strong>                                   <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>____________________________________________________________________</strong>    <strong>_______</strong>
+
+     7.5452     5.3139      2.2313    {'RC00127'}    {'atp[c] + amp[c]  <=> 2 adp[c] '                                  }     false 
+    0.24411    0.19039    0.053726    {'RC00185'}    {'atp[c] + adn[c]  -> adp[c] + h[c] + amp[c] '                     }     false 
+    0.49764    0.34227     0.15536    {'RC05578'}    {'atp[c] + glu-L[c] + trnaglu[c]  -> amp[c] + ppi[c] + glutrna[c] '}     false 
+    0.17739    0.12201    0.055381    {'RC03652'}    {'atp[c] + gln-L[c] + trnagln[c]  -> amp[c] + ppi[c] + glntrna[c] '}     false 
+    0.45233    0.31111     0.14122    {'RC03658'}    {'atp[c] + lys-L[c] + trnalys[c]  -> amp[c] + ppi[c] + lystrna[c] '}     false 
+    0.26905    0.18959    0.079455    {'RC00181'}    {'h[c] + amp[c] + h2o[c]  -> nh4[c] + imp[c] '                     }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>___________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'udpg[c]'}    0.071557    0.81115      0.058044  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                             <strong>formula</strong>                         <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>_________________________________________________</strong>    <strong>_______</strong>
+
+    0.036574    0.034522    0.0020525    {'RC01005'}    {'dolp[c] + udpg[c]  -> udp[c] + dolglcp[c] '   }     false 
+    0.097895     0.10608    0.0081845    {'RC00289'}    {'g1p[c] + h[c] + utp[c]  <=> ppi[c] + udpg[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'amp[m]'}    -0.97716    0.30528       0.2983   
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                      <strong>formula</strong>                                   <strong>bigJump</strong>
+    <strong>______</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>____________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.1096    0.075385    0.034219    {'RM03658'}    {'atp[m] + lys-L[m] + trnalys[m]  -> ppi[m] + amp[m] + lystrna[m] '}     false 
+    1.5303      1.0525     0.47777    {'RM00127'}    {'atp[m] + amp[m]  <=> 2 adp[m] '                                  }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'g3p[c]'}    0.69106    0.5975      0.41291   
+
+
+ans =
+
+  5×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                          <strong>formula</strong>                       <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>____________________________________________</strong>    <strong>_______</strong>
+
+           0        0.01        0.01    {'RC01070'}    {'fdp[c]  <=> dhap[c] + g3p[c] '           }     true  
+    -0.64136    -0.56632    0.075044    {'RC01641'}    {'g3p[c] + s7p[c]  <=> xu5p-D[c] + r5p[c] '}     false 
+    -0.64136    -0.56632    0.075044    {'RC01830'}    {'f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] '}     false 
+     0.63136     0.56632    0.065044    {'RC01827'}    {'g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] '   }     false 
+     0.16229     0.11474    0.047546    {'RC01066'}    {'2dr5p[c]  <=> g3p[c] + acald[c] '        }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'g3p[c]'}    0.69106    0.5975      0.41291   
+
+
+ans =
+
+  5×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                          <strong>formula</strong>                       <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>____________________________________________</strong>    <strong>_______</strong>
+
+           0        0.01        0.01    {'RC01070'}    {'fdp[c]  <=> dhap[c] + g3p[c] '           }     true  
+    -0.64136    -0.56632    0.075044    {'RC01641'}    {'g3p[c] + s7p[c]  <=> xu5p-D[c] + r5p[c] '}     false 
+    -0.64136    -0.56632    0.075044    {'RC01830'}    {'f6p[c] + g3p[c]  <=> xu5p-D[c] + e4p[c] '}     false 
+     0.63136     0.56632    0.065044    {'RC01827'}    {'g3p[c] + s7p[c]  <=> f6p[c] + e4p[c] '   }     false 
+     0.16229     0.11474    0.047546    {'RC01066'}    {'2dr5p[c]  <=> g3p[c] + acald[c] '        }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'pyr[m]'}    -0.94599    0.20737      0.19617   
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                   <strong>formula</strong>                               <strong>bigJump</strong>
+    <strong>______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________</strong>    <strong>_______</strong>
+
+    1.0102     1.0632    0.053016    {'RM00209'}    {'pyr[m] + coa[m] + nad[m]  -> accoa[m] + co2[m] + nadh[m] '}     false 
+    0.1343    0.11718    0.017116    {'RM00258'}    {'akg[m] + ala-L[m]  <=> pyr[m] + glu-L[m] '                }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'accoa[m]'}    -1.0662    0.34052      0.36308   
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>      <strong>delta</strong>          <strong>rxn</strong>                                                                  <strong>formula</strong>                                                              <strong>bigJump</strong>
+    <strong>______</strong>    <strong>______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>___________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    1.0102    1.0632    0.053016    {'RM00209'}    {'pyr[m] + coa[m] + nad[m]  -> accoa[m] + co2[m] + nadh[m] '                                                              }     false 
+    2.8941    2.5077     0.38643    {'RM00351'}    {'accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] '                                                                 }     false 
+         0         0           0    {'RMC0088'}    {'4 coa[m] + 4 nad[m] + 4 h2o[m] + 3 fad[m] + fa16p1n7coa[m]  -> 4 accoa[m] + 4 nadh[m] + 4 h[m] + 3 fadh2[m] + occoa[m] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>    <strong>contribution</strong>
+    <strong>____________</strong>    <strong>________</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'accoa[c]'}    -0.75774    0.3637      0.27559   
+
+
+ans =
+
+  4×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                        <strong>formula</strong>                                    <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_______________________________________________________________________</strong>    <strong>_______</strong>
+
+      0.1862     0.22888    0.042682    {'RC01978'}    {'h2o[c] + accoa[c] + aacoa[c]  -> h[c] + coa[c] + hmgcoa[c] '        }     false 
+      0.8649     0.71751     0.14739    {'RCC0019'}    {'atp[c] + accoa[c] + hco3[c]  <=> adp[c] + h[c] + pi[c] + malcoa[c] '}     false 
+        0.01    0.021588    0.011588    {'RC02058'}    {'accoa[c] + gam6p[c]  -> h[c] + coa[c] + acgam6p[c] '                }     false 
+    -0.29221    -0.21024    0.081969    {'RC03552'}    {'accoa[c] + Nlys[c]  <=> h[c] + coa[c] + Naclys[c] '                 }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>       <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'focytC[m]'}    -0.021156    0.70188      0.014849  
+
+
+ans =
+
+  4×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+       <strong>Var1</strong>          <strong>Var2</strong>         <strong>delta</strong>           <strong>rxn</strong>                                       <strong>formula</strong>                                   <strong>bigJump</strong>
+    <strong>__________</strong>    <strong>__________</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________________</strong>    <strong>_______</strong>
+
+       0.40231       0.65238       0.25008    {'RM00197'}    {'lac-D[m] + 2 ficytC[m]  -> pyr[m] + 2 h[m] + 2 focytC[m] '        }     false 
+        17.393        12.914        4.4796    {'RM02161'}    {'2 h[m] + qh2[m] + 2 ficytC[m]  <=> 4 h[c] + q[m] + 2 focytC[m] '  }     false 
+        9.0185        6.7883        2.2302    {'RM00081'}    {'8 h[m] + 4 focytC[m] + o2[m]  -> 4 h[c] + 2 h2o[m] + 4 ficytC[m] '}     false 
+    0.00011337    7.7978e-05    3.5396e-05    {'RM02480'}    {'apocytc[m] + pheme[m]  <=> focytC[m] '                            }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'met-L[c]'}    -0.10773    0.29326      0.031593  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                                  <strong>formula</strong>                               <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>____________________________________________________________</strong>    <strong>_______</strong>
+
+    0.066187    0.058011    0.0081758    {'RC00946'}    {'hcys-L[c] + 5mthf[c]  -> h[c] + met-L[c] + thf[c] '      }     false 
+     0.21828     0.16574     0.052537    {'RC00177'}    {'atp[c] + h2o[c] + met-L[c]  -> pi[c] + ppi[c] + amet[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>       <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'hmgcoa[c]'}    -0.082757    0.20325      0.016821  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>        <strong>delta</strong>           <strong>rxn</strong>                                        <strong>formula</strong>                                    <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_______________________________________________________________________</strong>    <strong>_______</strong>
+
+     0.1862    0.22888      0.042682    {'RC01978'}    {'h2o[c] + accoa[c] + aacoa[c]  -> h[c] + coa[c] + hmgcoa[c] '        }     false 
+    0.31238    0.31164    0.00074332    {'RC02082'}    {'2 h[c] + 2 nadph[c] + hmgcoa[c]  <=> 2 nadp[c] + coa[c] + mev-R[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ctp[c]'}    0.0085959    0.32291     0.0027757  
+
+
+ans =
+
+  5×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                                                                                      <strong>formula</strong>                                                                                  <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>___________________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.038117    0.035583    0.0025342    {'RC01799'}    {'h[c] + pa_pl[c] + ctp[c]  <=> ppi[c] + cdpdag[c] '                                                                                                              }     false 
+           0        0.01         0.01    {'RC00571'}    {'atp[c] + nh4[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + ctp[c] '                                                                                                 }     true  
+    0.033623        0.01     0.023623    {'RC00573'}    {'atp[c] + h2o[c] + gln-L[c] + utp[c]  -> adp[c] + 2 h[c] + pi[c] + glu-L[c] + ctp[c] '                                                                           }     false 
+    0.060639    0.063565     0.002926    {'RC00570'}    {'atp[c] + cdp[c]  <=> adp[c] + ctp[c] '                                                                                                                          }     false 
+     0.25069     0.17242     0.078268    {'BIO0003'}    {'0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'utp[c]'}    0.12608    0.32291      0.040712  
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                                                                      <strong>formula</strong>                                                                                  <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>___________________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.32886    0.28054    0.048318    {'RC00156'}    {'atp[c] + udp[c]  <=> adp[c] + utp[c] '                                                                                                                          }     false 
+    0.12099    0.10195    0.019042    {'RC00416'}    {'h[c] + utp[c] + acgam1p[c]  <=> ppi[c] + uacgam[c] '                                                                                                            }     false 
+    0.25069    0.17242    0.078268    {'BIO0003'}    {'0.639534 atp[c] + 0.406032 h2o[c] + 0.233503 gtp[c] + 0.228426 ctp[c] + 0.304569 utp[c]  -> 0.406032 adp[c] + 0.406032 h[c] + 0.406032 pi[c] + ppi[c] + RNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>___________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'dctp[c]'}       0       0.3094         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>          <strong>rxn</strong>                                                                                   <strong>formula</strong>                                                                                <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>______________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.0037953    0.0026104    0.0011849    {'RC02326'}    {'atp[c] + dcdp[c]  <=> adp[c] + dctp[c] '                                                                                                                   }     false 
+     0.021687     0.014916    0.0067709    {'BIO0004'}    {'0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>___________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'dttp[c]'}       0       0.3094         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>          <strong>rxn</strong>                                                                                   <strong>formula</strong>                                                                                <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>______________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.0070484    0.0048478    0.0022005    {'RC02093'}    {'atp[c] + dtdp[c]  <=> adp[c] + dttp[c] '                                                                                                                   }     false 
+     0.021687     0.014916    0.0067709    {'BIO0004'}    {'0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'dag_pl[c]'}    0.12301    0.22155      0.027253  
+
+
+ans =
+
+  4×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>         <strong>rxn</strong>                                 <strong>formula</strong>                             <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>_________________________________________________________</strong>    <strong>_______</strong>
+
+           0           0          0    {'RC02239'}    {'h2o[c] + pa_pl[c]  -> pi[c] + dag_pl[c] '             }     true  
+    -0.14523    -0.10301    0.04222    {'RC02057'}    {'dag_pl[c] + cdpea[c]  <=> h[c] + cmp[c] + pe[c] '     }     false 
+        0.02        0.02          0    {'RC03435'}    {'h2o[c] + pail45p[c]  -> h[c] + dag_pl[c] + mi145p[c] '}     false 
+           0           0          0    {'RC03332'}    {'h2o[c] + pail[c]  -> h[c] + dag_pl[c] + mi1p-D[c] '   }     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>       <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ethamp[c]'}    -0.028528    0.31807     0.0090737  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                 <strong>formula</strong>                             <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_________________________________________________________</strong>    <strong>_______</strong>
+
+    0.056016    0.038528    0.017489    {'RC02037'}    {'amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] '}     false 
+        0.01        0.01           0    {'RC02464'}    {'sph1p_ce[c]  -> ethamp[c] + m15hxdcal[c] '            }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+       <strong>branchMets</strong>       <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>________________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'dlnlcgcoa[c]'}    0.11398    0.4208      0.047965  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                                                                   <strong>formula</strong>                                                               <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.12195    0.11398    0.0079682    {'RCC0064'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + lnlncgcoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + dlnlcgcoa[c] '                  }     false 
+          0          0            0    {'RCC0093'}    {'2 h2o[c] + 2 nad[c] + 2 coa[c] + 2 o2[c] + dlnlcgcoa[c]  -> 2 h[c] + 2 nadh[c] + 2 accoa[c] + 2 h2o2[c] + fa16p3n6coa[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'pmtcoa[c]'}    -0.16999    0.69205      0.11764   
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                                      <strong>formula</strong>                                                   <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>____________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.23243    0.16999    0.062441    {'RC07758'}    {'h[c] + pmtcoa[c] + malcoa[c]  -> co2[c] + coa[c] + 3oodcoa[c] '                                  }     false 
+          0          0           0    {'RCC0165'}    {'o2[c] + pmtcoa[c]  -> h2o2[c] + hdd2coa[c] '                                                     }     true  
+          0          0           0    {'RCC0126'}    {'h2o[c] + nad[c] + coa[c] + o2[c] + stcoa[c]  -> h[c] + nadh[c] + accoa[c] + h2o2[c] + pmtcoa[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>      <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>__________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'stcoa[c]'}    -0.0016076    0.41225     0.00066273 
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>           <strong>rxn</strong>                                                               <strong>formula</strong>                                                           <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.0022583    0.0016076    0.00065068    {'RCC0124'}    {'9 h[c] + 6 nadph[c] + 3 malcoa[c] + stcoa[c]  -> 3 h2o[c] + 3 co2[c] + 6 nadp[c] + 3 coa[c] + lgnccoa[c] '        }     false 
+            0            0             0    {'RCC0125'}    {'3 h2o[c] + 3 nad[c] + 3 coa[c] + 3 o2[c] + lgnccoa[c]  -> 3 h[c] + 3 nadh[c] + 3 accoa[c] + 3 h2o2[c] + stcoa[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>branchMets</strong>       <strong>MetFlux</strong>      <strong>weight</strong>    <strong>contribution</strong>
+    <strong>______________</strong>    <strong>__________</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'vacccoa[c]'}    -0.0032642    0.4208     0.0013736  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                                                               <strong>formula</strong>                                                           <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+        0.01        0.01            0    {'RCC0070'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] '          }     false 
+    0.016295    0.013264    0.0030304    {'RCC0090'}    {'5 h2o[c] + 5 nad[c] + 5 coa[c] + 4 o2[c] + vacccoa[c]  -> 5 h[c] + 5 nadh[c] + 5 accoa[c] + 4 h2o2[c] + occoa[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>branchMets</strong>       <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>______________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'lgnccoa[c]'}    0.0016076    0.41225     0.00066273 
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>           <strong>rxn</strong>                                                               <strong>formula</strong>                                                           <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.0022583    0.0016076    0.00065068    {'RCC0124'}    {'9 h[c] + 6 nadph[c] + 3 malcoa[c] + stcoa[c]  -> 3 h2o[c] + 3 co2[c] + 6 nadp[c] + 3 coa[c] + lgnccoa[c] '        }     false 
+            0            0             0    {'RCC0125'}    {'3 h2o[c] + 3 nad[c] + 3 coa[c] + 3 o2[c] + lgnccoa[c]  -> 3 h[c] + 3 nadh[c] + 3 accoa[c] + 3 h2o2[c] + stcoa[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+        <strong>branchMets</strong>        <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>__________________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'eicostetcoa[c]'}       0       0.4208         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>      <strong>Var2</strong>     <strong>delta</strong>          <strong>rxn</strong>                                                                    <strong>formula</strong>                                                                <strong>bigJump</strong>
+    <strong>________</strong>    <strong>____</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_______________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.030786     0      0.030786    {'RCC0063'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + strdnccoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + eicostetcoa[c] '                  }     true  
+           0     0             0    {'RCC0096'}    {'2 h2o[c] + 2 nad[c] + 2 coa[c] + 2 o2[c] + eicostetcoa[c]  -> 2 h[c] + 2 nadh[c] + 2 accoa[c] + 2 h2o2[c] + fa16p4n3coa[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'malcoa[c]'}    0.55565    0.76184      0.42332   
+
+
+ans =
+
+  8×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>           <strong>rxn</strong>                                                             <strong>formula</strong>                                                         <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+       0.8649      0.71751       0.14739    {'RCC0019'}    {'atp[c] + accoa[c] + hco3[c]  <=> adp[c] + h[c] + pi[c] + malcoa[c] '                                          }     false 
+     0.030786            0      0.030786    {'RCC0063'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + strdnccoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + eicostetcoa[c] '    }     true  
+      0.12195      0.11398     0.0079682    {'RCC0064'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + lnlncgcoa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + dlnlcgcoa[c] '      }     false 
+         0.01         0.01             0    {'RCC0070'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] '      }     false 
+     0.024338     0.017648     0.0066899    {'RCC0072'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + fa13p0iso[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + fa15p0iso[c] '      }     false 
+     0.021293     0.015405     0.0058882    {'RCC0073'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + fa15p0iso[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + fa17p0iso[c] '      }     false 
+    0.0022583    0.0016076    0.00065068    {'RCC0124'}    {'9 h[c] + 6 nadph[c] + 3 malcoa[c] + stcoa[c]  -> 3 h2o[c] + 3 co2[c] + 6 nadp[c] + 3 coa[c] + lgnccoa[c] '    }     false 
+            0            0             0    {'RCC0210'}    {'6 h[c] + 4 nadph[c] + 2 malcoa[c] + lgnccoa[c]  -> 2 h2o[c] + 2 co2[c] + 4 nadp[c] + 2 coa[c] + fa28p0coa[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ins[c]'}     -0.01     0.50816     0.0050816  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>Var1</strong>    <strong>Var2</strong>    <strong>delta</strong>        <strong>rxn</strong>                            <strong>formula</strong>                        <strong>bigJump</strong>
+    <strong>____</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>___________</strong>    <strong>_______________________________________________</strong>    <strong>_______</strong>
+
+     0      0.01    0.01     {'RC01863'}    {'pi[c] + ins[c]  <=> r1p[c] + hxan[c] '      }     true  
+     0         0       0     {'RC01560'}    {'h[c] + h2o[c] + adn[c]  -> nh4[c] + ins[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'din[c]'}       0       0.50816         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>Var1</strong>    <strong>Var2</strong>    <strong>delta</strong>        <strong>rxn</strong>                             <strong>formula</strong>                         <strong>bigJump</strong>
+    <strong>____</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>___________</strong>    <strong>_________________________________________________</strong>    <strong>_______</strong>
+
+    0.01    0.01      0      {'RC02748'}    {'pi[c] + din[c]  <=> hxan[c] + 2dr1p[c] '      }     false 
+    0.01    0.01      0      {'RC02556'}    {'h[c] + h2o[c] + dad-2[c]  -> nh4[c] + din[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'dad-2[c]'}    -0.024649    0.50816      0.012526  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                             <strong>formula</strong>                         <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_________________________________________________</strong>    <strong>_______</strong>
+
+    0.025838    0.014649    0.011189    {'RC02557'}    {'pi[c] + dad-2[c]  <=> ade[c] + 2dr1p[c] '     }     false 
+        0.01        0.01           0    {'RC02556'}    {'h[c] + h2o[c] + dad-2[c]  -> nh4[c] + din[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>    <strong>contribution</strong>
+    <strong>___________</strong>    <strong>_______</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'datp[c]'}       0       0.3094         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>         <strong>delta</strong>          <strong>rxn</strong>                                                                                   <strong>formula</strong>                                                                                <strong>bigJump</strong>
+    <strong>________</strong>    <strong>_________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>______________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+           0    0.0048478    0.0048478    {'RC01137'}    {'atp[c] + dadp[c]  <=> adp[c] + datp[c] '                                                                                                                   }     true  
+    0.021687     0.014916    0.0067709    {'BIO0004'}    {'0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'xmp[c]'}    0.073944    0.23964      0.01772   
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                                 <strong>formula</strong>                                             <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.26905    0.18959    0.079455    {'RC01130'}    {'h2o[c] + nad[c] + imp[c]  -> h[c] + nadh[c] + xmp[c] '                                }     false 
+          0       0.01        0.01    {'RC01230'}    {'atp[c] + nh4[c] + xmp[c]  -> 2 h[c] + amp[c] + ppi[c] + gmp[c] '                      }     true  
+     0.1436    0.10565    0.037951    {'RC01231'}    {'atp[c] + h2o[c] + gln-L[c] + xmp[c]  -> 2 h[c] + amp[c] + ppi[c] + glu-L[c] + gmp[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>      <strong>MetFlux</strong>      <strong>weight</strong>    <strong>contribution</strong>
+    <strong>___________</strong>    <strong>__________</strong>    <strong>______</strong>    <strong>____________</strong>
+
+    {'dgtp[c]'}    4.3368e-19    0.3094     1.3418e-19 
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>         <strong>Var2</strong>         <strong>delta</strong>          <strong>rxn</strong>                                                                                   <strong>formula</strong>                                                                                <strong>bigJump</strong>
+    <strong>_________</strong>    <strong>_________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>______________________________________________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.0037953    0.0026104    0.0011849    {'RC01857'}    {'atp[c] + dgdp[c]  <=> adp[c] + dgtp[c] '                                                                                                                   }     false 
+     0.021687     0.014916    0.0067709    {'BIO0004'}    {'0.368 atp[c] + 0.368 h2o[c] + 0.325 datp[c] + 0.175 dgtp[c] + 0.175 dctp[c] + 0.325 dttp[c]  -> 0.368 adp[c] + 0.368 h[c] + 0.368 pi[c] + ppi[c] + DNA[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'oaa[m]'}    -0.69895    0.41147       0.2876   
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>      <strong>delta</strong>         <strong>rxn</strong>                                 <strong>formula</strong>                              <strong>bigJump</strong>
+    <strong>______</strong>    <strong>______</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>__________________________________________________________</strong>    <strong>_______</strong>
+
+    2.8941    2.5077    0.38643    {'RM00351'}    {'accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] '}     false 
+    2.5437    1.8088    0.73496    {'RM00342'}    {'nad[m] + mal-L[m]  <=> nadh[m] + h[m] + oaa[m] '       }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'cit[m]'}       0       0.40439         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>      <strong>delta</strong>         <strong>rxn</strong>                                 <strong>formula</strong>                              <strong>bigJump</strong>
+    <strong>______</strong>    <strong>______</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>__________________________________________________________</strong>    <strong>_______</strong>
+
+    2.8941    2.5077    0.38643    {'RM00351'}    {'accoa[m] + h2o[m] + oaa[m]  -> coa[m] + h[m] + cit[m] '}     false 
+    2.3099    2.5077    0.19778    {'RMC0001'}    {'cit[m]  <=> icit[m] '                                  }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'fum[m]'}       0       0.32568         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>         <strong>rxn</strong>                        <strong>formula</strong>                    <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>_______________________________________</strong>    <strong>_______</strong>
+
+     2.5054     1.7988    0.70666    {'RM02164'}    {'succ[m] + q[m]  -> qh2[m] + fum[m] '}     false 
+    -2.5054    -1.7988    0.70666    {'RM01082'}    {'mal-L[m]  <=> h2o[m] + fum[m] '     }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>    <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+     {'q[m]'}     1.3555     0.80511       1.0914   
+
+
+ans =
+
+  5×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>      <strong>delta</strong>         <strong>rxn</strong>                                      <strong>formula</strong>                                  <strong>bigJump</strong>
+    <strong>______</strong>    <strong>______</strong>    <strong>_______</strong>    <strong>___________</strong>    <strong>___________________________________________________________________</strong>    <strong>_______</strong>
+
+    2.5054    1.7988    0.70666    {'RM02164'}    {'succ[m] + q[m]  -> qh2[m] + fum[m] '                            }     false 
+    12.922    9.7592     3.1628    {'RMC0006'}    {'nadh[m] + 5 h[m] + q[m]  -> 4 h[c] + nad[m] + qh2[m] '          }     false 
+    17.393    12.914     4.4796    {'RM02161'}    {'2 h[m] + qh2[m] + 2 ficytC[m]  <=> 4 h[c] + q[m] + 2 focytC[m] '}     false 
+         0         0          0    {'RMC0007'}    {'h[c] + nadh[m] + q[m]  -> nad[m] + qh2[m] '                     }     true  
+         0         0          0    {'RMC0008'}    {'nadh[m] + h[m] + q[m]  -> nad[m] + qh2[m] '                     }     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>___________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'6pgl[c]'}       0       0.31055         0      
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>      <strong>Var2</strong>      <strong>delta</strong>          <strong>rxn</strong>                                <strong>formula</strong>                             <strong>bigJump</strong>
+    <strong>______</strong>    <strong>______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>________________________________________________________</strong>    <strong>_______</strong>
+
+    1.2827    1.2206    0.062087    {'RC02736'}    {'g6p-B[c] + nadp[c]  <=> h[c] + nadph[c] + 6pgl[c] '  }     false 
+    1.2827    1.2206    0.062087    {'RC02035'}    {'h2o[c] + 6pgl[c]  -> h[c] + 6pgc[c] '                }     false 
+    1.2827    1.2206    0.062087    {'RC01528'}    {'nadp[c] + 6pgc[c]  -> co2[c] + nadph[c] + ru5p-D[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>       <strong>MetFlux</strong>      <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>___________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'gam6p[c]'}    -3.4694e-18    0.61318     2.1274e-18 
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>Var1</strong>      <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                <strong>formula</strong>                            <strong>bigJump</strong>
+    <strong>____</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_______________________________________________________</strong>    <strong>_______</strong>
+
+    0.01        0.01           0    {'RC00768'}    {'f6p[c] + gln-L[c]  -> glu-L[c] + gam6p[c] '         }     false 
+       0    0.011588    0.011588    {'RC01961'}    {'atp[c] + gam[c]  -> adp[c] + h[c] + gam6p[c] '      }     true  
+    0.01    0.021588    0.011588    {'RC02058'}    {'accoa[c] + gam6p[c]  -> h[c] + coa[c] + acgam6p[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>      <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>__________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'5mthf[c]'}    -0.0025285    0.60993     0.0015422  
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                                <strong>formula</strong>                             <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>________________________________________________________</strong>    <strong>_______</strong>
+
+    0.066187    0.058011    0.0081758    {'RC00946'}    {'hcys-L[c] + 5mthf[c]  -> h[c] + met-L[c] + thf[c] '  }     false 
+           0        0.01         0.01    {'RC01224'}    {'2 h[c] + nadph[c] + mlthf[c]  -> nadp[c] + 5mthf[c] '}     true  
+    0.062983    0.045483       0.0175    {'RC07168'}    {'2 h[c] + nadh[c] + mlthf[c]  -> nad[c] + 5mthf[c] '  }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ahcys[c]'}    -0.040156    0.50781      0.020392  
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                   <strong>formula</strong>                                <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>______________________________________________________________</strong>    <strong>_______</strong>
+
+     0.20828     0.15574    0.052537    {'RC00192'}    {'h2o[c] + ahcys[c]  <=> hcys-L[c] + adn[c] '                }     false 
+    0.056016    0.038528    0.017489    {'RC02037'}    {'amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] '     }     false 
+    0.056016    0.038528    0.017489    {'RCC0021'}    {'2 amet[c] + methamp[c]  -> 2 h[c] + 2 ahcys[c] + cholp[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>___________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'amet[c]'}    0.050156    0.56979      0.028578  
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                   <strong>formula</strong>                                <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>______________________________________________________________</strong>    <strong>_______</strong>
+
+     0.21828     0.16574    0.052537    {'RC00177'}    {'atp[c] + h2o[c] + met-L[c]  -> pi[c] + ppi[c] + amet[c] '  }     false 
+    0.056016    0.038528    0.017489    {'RC02037'}    {'amet[c] + ethamp[c]  -> h[c] + ahcys[c] + methamp[c] '     }     false 
+    0.056016    0.038528    0.017489    {'RCC0021'}    {'2 amet[c] + methamp[c]  -> 2 h[c] + 2 ahcys[c] + cholp[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ivcoa[m]'}    0.017648    0.36627     0.0064641  
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                                                  <strong>formula</strong>                                                              <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>___________________________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.16052     0.11041    0.050116    {'RMC0011'}    {'coa[m] + nad[m] + 4mop[m]  -> co2[m] + nadh[m] + ivcoa[m] '                                                             }     false 
+    0.13618    0.092757    0.043426    {'RM04096'}    {'ivcoa[m] + etfox[m]  -> 3mb2coa[m] + etfrd[m] '                                                                         }     false 
+          0           0           0    {'RMC0105'}    {'2 coa[m] + 2 nad[m] + 2 h2o[m] + 2 fad[m] + fa9p0isocoa[m]  -> 2 accoa[m] + 2 nadh[m] + 2 h[m] + 2 fadh2[m] + ivcoa[m] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>branchMets</strong>      <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>______________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'3mb2coa[m]'}       0       0.21389         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                        <strong>formula</strong>                                     <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.13618    0.092757    0.043426    {'RM04096'}    {'ivcoa[m] + etfox[m]  -> 3mb2coa[m] + etfrd[m] '                      }     false 
+    0.13618    0.092757    0.043426    {'RM04138'}    {'atp[m] + hco3[m] + 3mb2coa[m]  -> h[m] + adp[m] + pi[m] + 3mgcoa[m] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'34hpp[c]'}       0       0.43759         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                            <strong>formula</strong>                        <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>_______________________________________________</strong>    <strong>_______</strong>
+
+    0.048302    0.023061    0.025241    {'RC00734'}    {'akg[c] + tyr-L[c]  <=> glu-L[c] + 34hpp[c] '}     false 
+    0.038302    0.023061    0.015241    {'RC02521'}    {'o2[c] + 34hpp[c]  -> co2[c] + hgentis[c] '  }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>      <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>__________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'phpyr[c]'}    -0.0029613    0.43759     0.0012959  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>Var1</strong>       <strong>Var2</strong>         <strong>delta</strong>          <strong>rxn</strong>                            <strong>formula</strong>                        <strong>bigJump</strong>
+    <strong>____</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>_______________________________________________</strong>    <strong>_______</strong>
+
+     0      -0.0029613    0.0029613    {'RC00694'}    {'akg[c] + phe-L[c]  <=> glu-L[c] + phpyr[c] '}     true  
+     0               0            0    {'RC01372'}    {'o2[c] + phpyr[c]  -> co2[c] + 2hyoxplac[c] '}     true  
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>___________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ipdp[c]'}    0.12164    0.24722      0.030072  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>        <strong>delta</strong>           <strong>rxn</strong>                                   <strong>formula</strong>                               <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_____________________________________________________________</strong>    <strong>_______</strong>
+
+    0.31238    0.31164    0.00074332    {'RC01121'}    {'atp[c] + 5dpmev[c]  -> adp[c] + pi[c] + co2[c] + ipdp[c] '}     false 
+       0.01       0.01             0    {'RC05556'}    {'19 ipdp[c] + frdp[c]  -> 19 ppi[c] + dedoldp[c] '         }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>branchMets</strong>       <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>______________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'gdpmann[c]'}    0.0046415    0.88856     0.0041242  
+
+
+ans =
+
+  6×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>           <strong>rxn</strong>                                     <strong>formula</strong>                                 <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>__________</strong>    <strong>___________</strong>    <strong>_________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.012191    0.011507    0.00068417    {'RC05972'}    {'chito2pdol[c] + gdpmann[c]  -> h[c] + gdp[c] + mpdol[c] '     }     false 
+    0.012191    0.011507    0.00068417    {'RC05973'}    {'gdpmann[c] + mpdol[c]  -> h[c] + gdp[c] + m1mpdol[c] '        }     false 
+    0.012191    0.011507    0.00068417    {'RC06238'}    {'gdpmann[c] + m1mpdol[c]  -> h[c] + gdp[c] + m2mpdol[c] '      }     false 
+    0.012191    0.011507    0.00068417    {'RCC0037'}    {'2 gdpmann[c] + m2mpdol[c]  -> 2 h[c] + 2 gdp[c] + m4mpdol[c] '}     false 
+    0.048766    0.046029     0.0027367    {'RC01009'}    {'dolp[c] + gdpmann[c]  <=> gdp[c] + dolmanp[c] '               }     false 
+     0.11193     0.10821     0.0037252    {'RC00885'}    {'h[c] + gtp[c] + man1p[c]  <=> ppi[c] + gdpmann[c] '           }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>branchMets</strong>     <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>___________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'udpg[c]'}    0.071557    0.81115      0.058044  
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                             <strong>formula</strong>                         <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>_________________________________________________</strong>    <strong>_______</strong>
+
+    0.036574    0.034522    0.0020525    {'RC01005'}    {'dolp[c] + udpg[c]  -> udp[c] + dolglcp[c] '   }     false 
+    0.097895     0.10608    0.0081845    {'RC00289'}    {'g1p[c] + h[c] + utp[c]  <=> ppi[c] + udpg[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'man6p[c]'}    -0.044645    0.23474      0.01048   
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                             <strong>formula</strong>                         <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>_________________________________________________</strong>    <strong>_______</strong>
+
+    0.065178    0.063561    0.0016165    {'RC01326'}    {'atp[c] + man[c]  -> adp[c] + h[c] + man6p[c] '}     false 
+    -0.11193    -0.10821    0.0037252    {'RC01818'}    {'man1p[c]  <=> man6p[c] '                      }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>     <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'man1p[c]'}       0       0.63427         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+      <strong>Var1</strong>        <strong>Var2</strong>        <strong>delta</strong>          <strong>rxn</strong>                               <strong>formula</strong>                            <strong>bigJump</strong>
+    <strong>________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>___________</strong>    <strong>______________________________________________________</strong>    <strong>_______</strong>
+
+    -0.11193    -0.10821    0.0037252    {'RC01818'}    {'man1p[c]  <=> man6p[c] '                           }     false 
+     0.11193     0.10821    0.0037252    {'RC00885'}    {'h[c] + gtp[c] + man1p[c]  <=> ppi[c] + gdpmann[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>     <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'ficytb[c]'}    -0.52891    0.58077      0.30718   
+
+
+ans =
+
+  4×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>Var1</strong>       <strong>Var2</strong>       <strong>delta</strong>          <strong>rxn</strong>                                            <strong>formula</strong>                                         <strong>bigJump</strong>
+    <strong>_______</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>___________</strong>    <strong>________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.70595    0.52623     0.17973    {'RC00100'}    {'h[c] + nadh[c] + 2 ficytb[c]  -> nad[c] + 2 focytb[c] '                      }     false 
+    0.17138    0.12729    0.044089    {'RC02222'}    {'o2[c] + 2 focytb[c] + stcoa[c]  -> 2 h2o[c] + 2 ficytb[c] + odecoa[c] '      }     false 
+    0.16752    0.12448     0.04304    {'RCC0061'}    {'o2[c] + 2 focytb[c] + odecoa[c]  -> 2 h2o[c] + 2 ficytb[c] + lnlccoa[c] '    }     false 
+       0.01       0.01           0    {'RCC0069'}    {'o2[c] + pmtcoa[c] + 2 focytb[c]  -> 2 h2o[c] + 2 ficytb[c] + fa16p1n7coa[c] '}     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+     <strong>branchMets</strong>      <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>_____________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'glucys[c]'}       0       0.26117         0      
+
+
+ans =
+
+  2×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>Var1</strong>    <strong>Var2</strong>    <strong>delta</strong>        <strong>rxn</strong>                                        <strong>formula</strong>                                    <strong>bigJump</strong>
+    <strong>____</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>___________</strong>    <strong>_______________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.01    0.01      0      {'RC00894'}    {'atp[c] + glu-L[c] + cys-L[c]  -> adp[c] + h[c] + pi[c] + glucys[c] '}     false 
+    0.01    0.01      0      {'RC00497'}    {'atp[c] + gly[c] + glucys[c]  -> adp[c] + h[c] + pi[c] + gthrd[c] '  }     false 
+
+
+ans =
+
+  1×4 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+        <strong>branchMets</strong>        <strong>MetFlux</strong>    <strong>weight</strong>     <strong>contribution</strong>
+    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>____________</strong>
+
+    {'fa16p1n7coa[c]'}       0       0.49318         0      
+
+
+ans =
+
+  3×6 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+    <strong>Var1</strong>    <strong>Var2</strong>    <strong>delta</strong>        <strong>rxn</strong>                                                          <strong>formula</strong>                                                      <strong>bigJump</strong>
+    <strong>____</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>___________</strong>    <strong>___________________________________________________________________________________________________________</strong>    <strong>_______</strong>
+
+    0.01    0.01      0      {'RCC0069'}    {'o2[c] + pmtcoa[c] + 2 focytb[c]  -> 2 h2o[c] + 2 ficytb[c] + fa16p1n7coa[c] '                           }     false 
+    0.01    0.01      0      {'RCC0070'}    {'3 h[c] + 2 nadph[c] + malcoa[c] + fa16p1n7coa[c]  -> h2o[c] + co2[c] + 2 nadp[c] + coa[c] + vacccoa[c] '}     false 
+       0       0      0      {'RCC0089'}    {'h2o[c] + nad[c] + coa[c] + o2[c] + odecoa[c]  -> h[c] + nadh[c] + accoa[c] + h2o2[c] + fa16p1n7coa[c] ' }     true  
+
