@@ -18,36 +18,23 @@ For further reading about iMAT-WPS and insights it reveals on flux wiring in _C.
 _Please note that the main purpose of this repository is to provide source codes to reproduce the study. However, iMAT-WPS is also a standalone algorithm that allows application to other similar datasets. Due to the complexity of integrating large-scale dataset like WPS data, we did not make toy-dataset-based walkthrough of the algorithm. Rather, even application is desired, we recommend users following the steps for reproducing our results while replacing input data and interactively develop your pipelines. It remains important to follow the steps to preprocess and filter the data before running main integration function._
 
 ## Dependencies 
-This analysis invovles a combined use of Matlab and R (> 3.6) platform. The FBA programs were developed and tested in MATLAB R2022a. [COnstraint-Based Reconstruction and Analysis (The COBRA Toolbox)](https://opencobra.github.io/cobratoolbox/stable/) is required to perform the analysis. Check [here](https://opencobra.github.io/cobratoolbox/stable/installation.html) for the installation guidance of COBRA Toolbox. The programs were tested for COBRA Toolbox - 2023 version, but should be compatible with an earlier version. 
+iMAT-WPS was developed and tested in MATLAB R2022b. [COnstraint-Based Reconstruction and Analysis (The COBRA Toolbox)](https://opencobra.github.io/cobratoolbox/stable/) is required to perform the analysis. Check [here](https://opencobra.github.io/cobratoolbox/stable/installation.html) for the installation guidance of COBRA Toolbox. The programs were tested for COBRA Toolbox - 2023 version, but should be compatible with an earlier version. This repository also contains a few R script for data visualization. 
 
-The Linear Program (LP) and Mixed-Integer Linear Problem (MILP) solver used in the study was [gurobi](http://gurobi.com) 10. The built-in solver interface of COBRA Toolbox was used, so that we expect our program to also work with other supported solver in COBRA Toolbox. Please [see here](https://opencobra.github.io/cobratoolbox/stable/installation.html#solver-installation) for furter information about solver availability. 
+The Linear Program (LP) and Mixed-Integer Linear Problem (MILP) solver used in the study was [gurobi](http://gurobi.com) 10.0.1. The built-in solver interface of COBRA Toolbox was used, so that we expect our program to also work with other supported solver in COBRA Toolbox. Please [see here](https://opencobra.github.io/cobratoolbox/stable/installation.html#solver-installation) for furter information about solver availability. 
 
 ## Content 
-To reproduce the CR-model analysis, run the scripts in the root directory following the numeric order in the suffix of the file name (also the order listed below). The functions of these scripts are described as follows:
+To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scripts in the root directory following the numeric order in the suffix of the file name (also the order listed below). The scripts and folders are described as follows:
 
-_MATLAB_ programs
-* __a0_findEssentialExchange.m__: This is a helper function to identify a minimal set of essential exchange reactions that supports all model reactions to carry flux. This script was used to identify such essential exchanges in defining the constraints for a parsimonious nutrient condition for the FBA simulation.
-* __a0_save_model_constraints.m__: This is the function to save a fully constrained model into csv files for publication. Provided for reproducibility purpose.
-* __a1_gene_obj_classification.m__: The script to perform FBA analysis to calculate the core objective function scores and assign core objective functions for each model gene.
-* __a1_save_rel_del_flux_mat.m__: The script to save the core function scores of each gene into a csv matrix.
+### Step 1: Preprocessing of WPS data to generate inputs for integration
+* __a1_analyze_responsiveness_constraints.m__: This script interactively analzyes the gene expression levels in WT controls of WPS dataset as well as the WPS responsiveness. This includes statistical modeling, data inspections and visualizations, followed by producing the ready-to-use inputs for running iMAT-WPS integration.
+* __a1_analyze_DEsimilarity_constraints.m__: This includes the code to interactively analyze the perturbation-perturbation similarities of WPS dataset, starting with the cosine similarity matrix. It involves several filtering, table inspection and plotting to produce the ready-to-use inputs for running iMAT-WPS integration. It also includes sanity checks to make sure perturbation-perturbation data is consistent with hypothesis assumptions.
+* __(optional) a1_make_labeled_DEsim_heatmap.R__ and __a1_make_stacked_pie_chart.R__: R scripts to make __Fig. 3b, d__ (e.g., the labeled panel '__d__' in the above figure).
 
-_R_ programs
-* __2_DEG_modeling_supp_gspd_1_example_objHeatmap.R__: Script to produce the bar plot visualization of core functions of differentially expressed genes (DEGs) in gspd-1 RNAi. Related to **Fig. 6c**. 
-* __2_DEG_modeling_basic_CR_model.R__: R script to visualize the differentially expressed genes (DEGs) in metabolic gene WPS dataset with respect to the core metabolic functions. Related to **Fig. 6d**.
-* __2_DEG_modeling_supp_excludeMultiObjGenes.R__: Same as __2_DEG_modeling_basic_CR_model.R__ but only analyzed genes with unique core function associations
-* __2_DEG_modeling_supp_fused_with_FBA.R__: Testing the FBA-based CR model with the entire metabolic WPS dataset. Related to **Fig. 6g**.
-* __2_DEG_modeling_supp_GRN_randomization.R__: Same as __2_DEG_modeling_supp_fused_with_FBA.R__ but used alternative randomization method that randomizes the GRN instead of core function associations. Results not shown in the paper.
-* __2_DEG_modeling_supp_model_consistency.R__: visualization DEGs and testing CR model significance using the proportion of DEGs consistent with CR model expectation over DEGs with core function(s) associations, instead of over all DEGs. Results not shown in the paper.
-* __2_DEG_modeling_supp_parameter_sensitivity_fused_with_FBA.R__: Testing the parameter sensitivity of CR model by titrating the core function score threshold. Related to **Fig. 6g**.
-* __3_DEG_modeling_edge_quantification_randFBA.R__: Quantifying the inter-core-function interactions and testing corresponding statistical significance by randomizing core function associations. Related to **Fig. 6e**.
-* __3_DEG_modeling_edge_quantification_randGRN.R__: Same as __3_DEG_modeling_edge_quantification_randFBA.R__ but uses randomization of mGRN instead of core function associations. Results not shown in the paper, but support 16 alternative parameter settings mentioned in Supplementary Method to ensure robustness.
-* __3_DEG_modeling_edge_direction_test_randFBA.R__: Same as __3_DEG_modeling_edge_quantification_randFBA.R__ but testing an alternative hypothesis that whether the direction of an interaction is significant. Results not shown in the paper, but support 16 alternative parameter settings mentioned in Supplementary Method to ensure robustness.
-* __3_DEG_modeling_edge_direction_test_randGRN.R__: Same as __3_DEG_modeling_edge_direction_test_randFBA.R__ but uses randomization of mGRN instead of core function associations. Results not shown in the paper, but support 16 alternative parameter settings mentioned in Supplementary Method to ensure robustness.
-* __4_supplementary_analysis.R__: Reproducing the numbers (i.e., enrichment of genes associated with core functions in mGRN) reported in the paper.
+### Step 2: Run iMAT-WPS integration 
+* __a2_1_run_integrations.m__: a master script to run different types of integrations, including the iMAT-WPS triple integration or dual integrations that only integrates two of the tree inputs. It also contains only integrating expression levels (i.e., iMAT++) and no integration control.
+  * Notice: this script is only a wrapper script for easy running of the programs. The actual integration pipelines are in [integration_pipelines](integration_pipelines) folder, which calls the main integration function [IMATplusplus_wiring_triple_inetgration_final](scripts/IMATplusplus_wiring_triple_inetgration_final.m). If you want to apply iMAT-WPS for a custom dataset, please edit corresponding integration pipeline in [integration_pipelines](integration_pipelines).
+  * 
 
-_helper functions_
-* __addDefaultConstraint.m__: Constraining the metabolic network model for performing FBA.
-* __listRxn4gene.m__: a helper reactions to track flux distributions related to a given gene. Only useful for developers who wants to look deep into the FBA results in core function simulations.
 
 _Folders_
 * __input__: inputs for CR model analysis
