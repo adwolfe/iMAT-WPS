@@ -6,13 +6,11 @@ iMAT-WPS is a data integration algorithm that comprehensively integrate the enti
 
 <img src="figures/hypothesis_cartoon.png" width="600"/>
 
-
-
+We first performed proof-of-concept of these two novel hypotheses by case studies and then developed iMAT-WPS algorithm to systematically use these hypotheses to integrate WPS data with metabolic network model for flux prediction. The iMAT-WPS algorithm can be summarized in the figure below:
 
 <img src="figures/algorithm_cartoon.png" width="600"/>
 
-
-For further reading about CR model, please refer to our paper: 
+For further reading about iMAT-WPS and insights it reveals on flux wiring in _C. elegans_, please refer to our paper: 
 [Title and authors](https://bioRxiv_link)
 
 
