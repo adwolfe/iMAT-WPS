@@ -1,13 +1,13 @@
 # iMAT-WPS
-The iMAT-WPS algorithm that integrates gene expression, WPS responsiveness and similarity to predict systems-level flux wiring.
+The iMAT-WPS algorithm that integrates gene expression, WPS responsiveness and WPS perturbation-perturbation similarity to predict systems-level flux wiring.
 
 ## Introduction 
-iMAT-WPS is a data integration algorithm that comprehensively integrate the entire metabolic gene WPS dataset with _C. elegans_ metabolic network model to predict systems-level flux distribution in the wild-type (unperturbed) animal. iMAT-WPS is adapted from our previous **iMAT++** algorithm in [MERGE](https://github.com/WalhoutLab/MERGE) package with substantial extension to enable critical integrations of WPS responsiveness and perturbation-perturbation simularity. This enables a triple integration of three characteristics of each metabolic gene: how much it expresses (gene expression levels), whether it has an transcriptional response when perturbed (WPS responsiveness) and whether its transcriptional responses are similar to that of any other genes (WPS perturbation-perturbation similarity). The integration of the latter two is based on two fundamental hypotheses as illutrated in the following figure: 
+iMAT-WPS is a data integration algorithm that comprehensively integrate the entire metabolic gene WPS dataset with _C. elegans_ metabolic network model to predict systems-level flux distribution in the wild-type (unperturbed) animal. iMAT-WPS is adapted from our previous **iMAT++** algorithm in [MERGE](https://github.com/WalhoutLab/MERGE) package with substantial extension to enable integrations of WPS responsiveness and perturbation-perturbation simularity. This produces a triple integration of three information about each metabolic gene: how much it expresses (gene expression levels), whether it has an transcriptional response when perturbed (WPS responsiveness) and whether its transcriptional response is similar to that of any other genes (WPS perturbation-perturbation similarity). The integration of the latter two is based on two fundamental hypotheses as illutrated in the following figure: 
 
 <img src="figures/hypothesis_cartoon.png" width="1000"/>
 
 
-We first performed proof-of-concept of these two novel hypotheses by case studies and then developed iMAT-WPS algorithm to systematically use these hypotheses to integrate WPS data with metabolic network model for flux prediction. The iMAT-WPS algorithm can be summarized in the figure below:
+In our study, we first experimentally estabolished proof-of-concept of these two novel hypotheses by case studies and isotope tracing. Then we developed iMAT-WPS algorithm to systematically use these hypotheses to integrate WPS data with metabolic network model for flux prediction. The iMAT-WPS algorithm can be summarized in the figure below:
 
 <img src="figures/algorithm_cartoon.png" width="1000"/>
 
@@ -15,9 +15,7 @@ We first performed proof-of-concept of these two novel hypotheses by case studie
 For further reading about iMAT-WPS and insights it reveals on flux wiring in _C. elegans_, please refer to our paper: 
 [Title and authors](https://bioRxiv_link)
 
-
-
-_Please note that this repository aims for reproducing our study instead of providing a user-friendly package for performing similar analysis on other datasets. Please modify the codes accordingly to build your analysis if a CR-model analysis on other datasets or systems is desired._
+_Please note that the main purpose of this repository is to provide source codes to reproduce the study. However, iMAT-WPS is also a standalone algorithm that allows application to other similar datasets. Due to the complexity of integrating large-scale dataset like WPS data, we did not make toy-dataset-based walkthrough of the algorithm. Rather, even application is desired, we recommend users following the steps for reproducing our results while replacing input data and interactively develop your pipelines. It remains important to follow the steps to preprocess and filter the data before running main integration function._
 
 ## Dependencies 
 This analysis invovles a combined use of Matlab and R (> 3.6) platform. The FBA programs were developed and tested in MATLAB R2022a. [COnstraint-Based Reconstruction and Analysis (The COBRA Toolbox)](https://opencobra.github.io/cobratoolbox/stable/) is required to perform the analysis. Check [here](https://opencobra.github.io/cobratoolbox/stable/installation.html) for the installation guidance of COBRA Toolbox. The programs were tested for COBRA Toolbox - 2023 version, but should be compatible with an earlier version. 
