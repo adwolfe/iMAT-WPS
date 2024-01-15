@@ -4,11 +4,13 @@ The iMAT-WPS algorithm that integrates gene expression, WPS responsiveness and s
 ## Introduction 
 iMAT-WPS is a data integration algorithm that comprehensively integrate the entire metabolic gene WPS dataset with _C. elegans_ metabolic network model to predict systems-level flux distribution in the wild-type (unperturbed) animal. iMAT-WPS is adapted from our previous **iMAT++** algorithm in [MERGE](https://github.com/WalhoutLab/MERGE) package with substantial extension to enable critical integrations of WPS responsiveness and perturbation-perturbation simularity. This enables a triple integration of three characteristics of each metabolic gene: how much it expresses (gene expression levels), whether it has an transcriptional response when perturbed (WPS responsiveness) and whether its transcriptional responses are similar to that of any other genes (WPS perturbation-perturbation similarity). The integration of the latter two is based on two fundamental hypotheses as illutrated in the following figure: 
 
-<img src="figures/hypothesis_cartoon.png" width="600"/>
+<img src="figures/hypothesis_cartoon.png" width="1000"/>
+
 
 We first performed proof-of-concept of these two novel hypotheses by case studies and then developed iMAT-WPS algorithm to systematically use these hypotheses to integrate WPS data with metabolic network model for flux prediction. The iMAT-WPS algorithm can be summarized in the figure below:
 
-<img src="figures/algorithm_cartoon.png" width="600"/>
+<img src="figures/algorithm_cartoon.png" width="1000"/>
+
 
 For further reading about iMAT-WPS and insights it reveals on flux wiring in _C. elegans_, please refer to our paper: 
 [Title and authors](https://bioRxiv_link)
