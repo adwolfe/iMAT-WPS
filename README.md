@@ -23,7 +23,7 @@ iMAT-WPS was developed and tested in MATLAB R2022b. [COnstraint-Based Reconstruc
 The Linear Program (LP) and Mixed-Integer Linear Problem (MILP) solver used in the study was [gurobi](http://gurobi.com) 10.0.1. The built-in solver interface of COBRA Toolbox was used, so that we expect our program to also work with other supported solver in COBRA Toolbox. Please [see here](https://opencobra.github.io/cobratoolbox/stable/installation.html#solver-installation) for furter information about solver availability. 
 
 ## Content 
-To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scripts in the root directory following the numeric order in the suffix of the file name (also the order listed below). The scripts and folders are described as follows:
+To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scripts in the root directory following the numeric order in the prefix of the file name (also the order listed below). The scripts and folders are described as follows:
 
 ### Step 1: Preprocessing of WPS data to generate inputs for integration
 * __a1_analyze_responsiveness_constraints.m__: This script interactively analzyes the gene expression levels in WT controls of WPS dataset as well as the WPS responsiveness. This includes statistical modeling, data inspections and visualizations, followed by producing the ready-to-use inputs for running iMAT-WPS integration.
