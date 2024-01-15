@@ -39,15 +39,25 @@ To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scr
   * Notice: although this script contains the codes to perform LOO and LOI on a local machine (a laptop or desktop), systematic LOO and LOI analysis is computationally expansive, due to the recursive excecution of iMAT-WPS and its FVA. We performed the analysis in a computational cluster using wrapper codes in [cluster_codes_for_mechanisms](cluster_codes_for_mechanisms) folder. These cluster scripts can be usable in a cluster based on LSF scheduler. Unfortunately, we cannot develop a more generally applicable function for other clusters.
 * __(optional) a2_make_euler_plot.R__: R script to make __Extended Data Fig. 3a, b__.
 
+### Step 3: post-integration analysis
+* __a3_responsiveness_randomization_nonrespRxn_flux.m__: randomization analysis to determine whether the fitting of resonsiveness data is significantly self-consistent. Related to __Fig. 3e,f__.
+* __a3_DE_similarity_randomization_metFitLoss.m__: randomization analysis to determine whether the fitting of real perturbation-perturbation similarity data is significantly less conflicting with the fitting of responsiveness and expression levels. Related to __Fig. 3g__.
+* __a4_case_study_PPP_cycle_screen_for_causal_genes.m__, __a4_case_study_PPP_cycle_responsiveness_mechanism.m__, __a4_case_study_PPP_cycle_interaction_with_similarity.m__: scripts to perform the case study of the prediction mechanism of cyclic PPP. Related to __Fig. 4b-e__.
+* __a4_case_study_PPshunt_msa.m__: scripts to perform the case study of the flux solution space of propionate shunt. Related to the confidence level of flux related to msa in __Fig. 4a__.
+* __a4_figure_making_assist.m__: the helper function to interactively determine the arrow width and confidence level of all fluxes visualized in __Fig. 4a__. The arrow width produced in this script was use to first draw the flux distribution cartoon in a U.S. letter page in Illustrator. This script is provided for reproducibility purpose.
+* __a4_study_a_case.m__: outdated script and will be removed in the next update. 
 
 _Folders_
-* __input__: inputs for CR model analysis
+* __input__: inputs for iMAT-WPS analysis including the metabolic network model and WPS data. 
 * __output__: pre-stored outputs of modeling results. Used for making the figures in the paper.
 * __figures__: raw figures used for making the paper. These figures were the input for final figure making in Illustrator.
+* __scripts__: functions involved in iMAT-WPS. It may contain unused function(s) for historical reason. 
+* __cluster_codes_for_mechanisms__: codes to run LOO and LOI analysis in a computation cluster with LSF scheduler system.
+  
 
-We tried our best to ensure the codes are well commented and readable. However, if you encounter any questions, please feel free to reach out (see below for __Contacts__)!
+We tried our best to ensure the codes are well commented and readable. However, if you encounter any questions, please feel free to reach out (see below for __Contacts__)! We are particularly interested in assisting anyone who wants to apply and test iMAT-WPS in other systems!
 
 ## Contact
 
-Any questions or suggestions on reproducing CR model analysis or testing it in other systems/datasets are welcomed! Please contact Xuhang Li [xuhang.li\@umassmed.edu](mailto:xuhang.li@umassmed.edu) for questions!
+Any questions or suggestions on reproducing iMAT-WPS analysis or testing it in other systems/datasets are welcomed! Please contact Xuhang Li [xuhang.li\@umassmed.edu](mailto:xuhang.li@umassmed.edu) for questions!
 
