@@ -47,7 +47,7 @@ To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scr
 * __a4_figure_making_assist.m__: the helper function to interactively determine the arrow width and confidence level of all fluxes visualized in __Fig. 4a__. The arrow width produced in this script was use to first draw the flux distribution cartoon in a U.S. letter page in Illustrator. This script is provided for reproducibility purpose.
 * __a4_study_a_case.m__: outdated script and will be removed in the next update. 
 
-_Folders_
+### Folders
 * __input__: inputs for iMAT-WPS analysis including the metabolic network model and WPS data. 
 * __output__: pre-stored outputs of modeling results. Used for making the figures in the paper.
 * __figures__: raw figures used for making the paper. These figures were the input for final figure making in Illustrator.
