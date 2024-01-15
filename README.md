@@ -33,7 +33,11 @@ To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scr
 ### Step 2: Run iMAT-WPS integration 
 * __a2_1_run_integrations.m__: a master script to run different types of integrations, including the iMAT-WPS triple integration or dual integrations that only integrates two of the tree inputs. It also contains only integrating expression levels (i.e., iMAT++) and no integration control.
   * Notice: this script is only a wrapper script for easy running of the programs. The actual integration pipelines are in [integration_pipelines](integration_pipelines) folder, which calls the main integration function [IMATplusplus_wiring_triple_inetgration_final](scripts/IMATplusplus_wiring_triple_inetgration_final.m). If you want to apply iMAT-WPS for a custom dataset, please edit corresponding integration pipeline in [integration_pipelines](integration_pipelines).
-  * 
+* __a2_2_run_FVA.m__: iMAT-WPS involves not only the prediction of an Optimal Flux Distribution (OFD) (i.e., in __a2_1_run_integrations.m__), but also a prediction confidence analysis based on Flux Variability Analysis (FVA). This script performs FVA using the MILP model produced in __a2_1_run_integrations.m__.
+* __a2_3_compare_diff_integrations.m__: a wrapper function to conveniently generate a summary table of OFD, FVA intervals, whether a reaction is bounded, and these values across different integrations.
+* __a2_4_prediction_mechanism_analysis.m__: Analyzing the prediction mechanism (which data drives which flux prediction) by Leave-One-Out (LOO) and Leave-One-In (LOI) analysis.
+  * Notice: although this script contains the codes to perform LOO and LOI on a local machine (a laptop or desktop), systematic LOO and LOI analysis is computationally expansive, due to the recursive excecution of iMAT-WPS and its FVA. We performed the analysis in a computational cluster using wrapper codes in [cluster_codes_for_mechanisms](cluster_codes_for_mechanisms) folder. These cluster scripts can be usable in a cluster based on LSF scheduler. Unfortunately, we cannot develop a more generally applicable function for other clusters.
+* __(optional) a2_make_euler_plot.R__: R script to make __Extended Data Fig. 3a, b__.
 
 
 _Folders_
