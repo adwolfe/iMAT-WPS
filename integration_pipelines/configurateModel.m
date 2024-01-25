@@ -2,9 +2,14 @@
 function model = configurateModel(model)
 
 % setting up the model 
+
+% stay consistent with regular worm FBA 
+model = changeRxnBounds(model,'RMC0005',0,'u');
+model = changeRxnBounds(model,'RMC0005',0,'l');
+
 % block a reaction that is a misannotation in the model and should be not
 % existing
-model = changeRxnBounds(model,'TCM1071',0,'b'); % remove the nadp version
+model = changeRxnBounds(model,'TCM1071',0,'b');
 
 % constraints to optimize the modeling of redox balance
 % the core conclusion such as cyclic PPP flux (bounded large flux) is not

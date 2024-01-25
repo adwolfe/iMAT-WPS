@@ -6,17 +6,16 @@ addpath ./../bins/
 addpath ./../input/
 addpath scripts/
 initCobraToolbox(false);
-%% generate epsilon - local
-% regenerate the epsilon when model is modified 
-% model = changeRxnBounds(model,'EXC0050',-1,'l');% we allow 1 unit of bacteria for flux threshold (epsilon) calculation
-% [epsilon_f, epsilon_r] = makeEpsilonSeq(model, model.rxns, 0.01, 0.5);
-% save('input/epsilon_generic_withUptakes.mat','epsilon_f', 'epsilon_r');
 
 %% generate epsilon - server
 % regenerate the epsilon when model is modified 
+% load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
+% model = configurateModel(model);
 % model = changeRxnBounds(model,'EXC0050',-1,'l');% we allow 1 unit of bacteria for flux threshold (epsilon) calculation
-% [epsilon_f, epsilon_r] = makeEpsilonSeq_server(model, model.rxns, 0.01, 0.5);
-% save('input/epsilon_generic_withUptakes.mat','epsilon_f', 'epsilon_r');
+% [epsilon_f, epsilon_r,capacity_f,capacity_r] = makeEpsilonSeq_server(model, model.rxns, 0.01, 0.5);
+% save('input/model/epsilon_generic_withUptakes.mat','epsilon_f', 'epsilon_r');
+% save('input/model/capacity_generic_withUptakes.mat','capacity_f', 'capacity_r');
+
 %% run the five integrations 
 % note: we didn't parameterize the model setup, including 1% storage, 1%
 % side metabolites, 0.1% individual side metabolites, and 0.01/50%Vmax

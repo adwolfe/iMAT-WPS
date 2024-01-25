@@ -1,3 +1,8 @@
+addpath ~/cobratoolbox/% your cobra toolbox path
+addpath /share/pkg/gurobi/10.0.0/linux64/matlab/% the gurobi path
+addpath ./../bins/
+addpath ./../input/
+addpath scripts/
 addpath integration_pipelines/
 
 rng(1030)
@@ -18,7 +23,7 @@ for i = 1:length(splits)
     env_cmd = 'module load gurobi/10.0.0 && module load matlab/r2022b && ';
     cmd = ['matlab -nodisplay -nosplash -nojvm -r \"cluster_a2_prediction_mechanism_analysis_resp ',tmpDir,' ',num2str(splits(i)),'\"'];
     full_cmd = [env_cmd, cmd, ' > ',tmpDir,'/',batchID,'.log && wait'];
-    bsub_cmd = ['bsub -q long -W 12:00 -n 1 -R rusage[mem=4096] -e ',tmpDir,'/err_',batchID,'.log ','-J ',batchID,' "'];
+    bsub_cmd = ['bsub -q long -W 12:00 -n 1 -R rusage[mem=6000] -e ',tmpDir,'/err_',batchID,'.log ','-J ',batchID,' "'];
     cmd_ready = [bsub_cmd, full_cmd,'"'];
     system(cmd_ready);
     pause(0.1);
@@ -52,7 +57,7 @@ while ~isempty(runningBatches)
         env_cmd = 'module load gurobi/10.0.0 && module load matlab/r2022b && ';
         cmd = ['matlab -nodisplay -nosplash -nojvm -r \"cluster_a2_prediction_mechanism_analysis_resp ',tmpDir,' ',num2str(splits(i)),'\"'];
         full_cmd = [env_cmd, cmd, ' > ',tmpDir,'/',batchID,'.log && wait'];
-        bsub_cmd = ['bsub -q long -W 12:00 -n 1 -R rusage[mem=4096] -e ',tmpDir,'/err_',batchID,'.log ','-J ',batchID,' "'];
+        bsub_cmd = ['bsub -q long -W 12:00 -n 1 -R rusage[mem=8000] -e ',tmpDir,'/err_',batchID,'.log ','-J ',batchID,' "'];
         cmd_ready = [bsub_cmd, full_cmd,'"'];
         system(cmd_ready);
         fprintf('batch %d was resubmitted...\n',i);

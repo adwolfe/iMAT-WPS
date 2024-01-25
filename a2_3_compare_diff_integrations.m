@@ -506,7 +506,17 @@ h = plotReactionSet(flux_cmp{MetSAMrxns,["OFD_exp_resp_simi","OFD_exp_resp","OFD
 h.Position(4) = 100*length(MetSAMrxns)+100;  % for example, set the height to 800
 saveas(h, 'figures/flux_comparison_Met_SAM_cycle.pdf');
 
-
+% (17) glycolysis cycle
+glycolysisrxns = {'RC01786','RC01600','RC03321','RC02740','RC04779','RC01070','RC01015',...
+                    'RC01061','RC01512','RC01518','RC00658','RC00200','RC00431'};
+h = plotReactionSet(flux_cmp{glycolysisrxns,["OFD_exp_resp_simi","OFD_exp_resp","OFD_exp_simi","OFD_exp_only","OFD_no_data"]}, ...% Heights of the bars
+                    flux_cmp{glycolysisrxns,["FVA_PFD_exp_resp_simi","FVA_PFD_exp_resp","FVA_PFD_exp_simi","FVA_PFD_exp_only","FVA_PFD_no_data"]}(:,[2,4,6,8,10]),...% Upper bounds
+                    flux_cmp{glycolysisrxns,["FVA_PFD_exp_resp_simi","FVA_PFD_exp_resp","FVA_PFD_exp_simi","FVA_PFD_exp_only","FVA_PFD_no_data"]}(:,[1,3,5,7,9]),...% Lower bounds
+                    flux_cmp{glycolysisrxns,["FVA_OFD_exp_resp_simi","FVA_OFD_exp_resp","FVA_OFD_exp_simi","FVA_OFD_exp_only","FVA_OFD_no_data"]}(:,[2,4,6,8,10]),...% Upper bounds
+                    flux_cmp{glycolysisrxns,["FVA_OFD_exp_resp_simi","FVA_OFD_exp_resp","FVA_OFD_exp_simi","FVA_OFD_exp_only","FVA_OFD_no_data"]}(:,[1,3,5,7,9]),...% Lower bounds
+                    strcat(glycolysisrxns,':',{' '}, printRxnFormula(model,glycolysisrxns,0)));% Annotations
+h.Position(4) = 100*length(glycolysisrxns)+100;  % for example, set the height to 800
+saveas(h, 'figures/flux_comparison_glycolysis.pdf');
 
 % --> the two constraints, responsiveness and similarity synergistically
 % narrow down the solution space (if we claim this, we need a simulation

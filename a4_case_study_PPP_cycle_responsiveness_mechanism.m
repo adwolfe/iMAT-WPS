@@ -202,7 +202,7 @@ for p = 1:num_plots % Loop over plots
     title(mytext(p))
 
     % set the x-axis
-    xlim([-2, 2])
+    xlim([-2.2, 2.2])
     tmp = cellfun(@(x) strjoin(x, '\\Delta'), queryGenes, 'UniformOutput', false);
     set(gca,'YTickLabel', [{'Exp+resp'},strcat('\Delta', tmp)],'YTick', 1:size(OFDs, 2))
 

@@ -1,3 +1,8 @@
+addpath ~/cobratoolbox/% your cobra toolbox path
+addpath /share/pkg/gurobi/10.0.0/linux64/matlab/% the gurobi path
+addpath ./../bins/
+addpath ./../input/
+addpath scripts/
 addpath integration_pipelines/
 
 rng(217)

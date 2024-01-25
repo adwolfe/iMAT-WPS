@@ -87,7 +87,7 @@ save('output/randomization/Randomization_GPR_responsiveness_conflict.mat','N_con
 
 figure;
 hold on
-histogram(N_conflict_rand./length(ExpCateg.nonresponsive)*100, 'NumBins',34)
+histogram(N_conflict_rand./length(ExpCateg.nonresponsive)*100)
 xline(N_conflict_obs/length(ExpCateg.nonresponsive)*100,'--','LineWidth',2,'Color','red')
 xlabel('Conflicting nonresponsive gene (%)');
 ylabel('Frequency');
@@ -258,13 +258,13 @@ any(isnan(totalNonrespFlux))
 
 figure;
 hold on
-histogram(totalNonrespFlux, 'NumBins',200)
+histogram(totalNonrespFlux)
 xline(totalNonrespFlux_obs,'--','LineWidth',2,'Color','red')
 xlabel('Total conflicting flux through nonresponsive reactions');
 ylabel('Frequency');
 title(['p < ',num2str((sum(totalNonrespFlux <= totalNonrespFlux_obs) + 1) / (length(totalNonrespFlux) + 1))])
 plt = Plot(); % create a Plot object and grab the current figure
-xlim([0 160]) % some extreme values were cutoff
+xlim([0 230]) % some extreme values were cutoff
 plt.BoxDim = [2.85, 2.35];
 plt.LineWidth = 1;
 plt.FontSize = 7;
