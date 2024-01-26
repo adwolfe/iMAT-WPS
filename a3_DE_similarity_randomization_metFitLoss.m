@@ -1,9 +1,9 @@
-%% about
+%% summary
 % To assess the consistency between metabolite split constraints and the
 % other constriants (responsiveness and abs exp), we randomize the
 % metabolite split by generating random couplings for the constrained 
 % metabolites and then redo everything again. We use the metabolite loss
-% of fit as a readout.
+% of fit (the objective function in the fitting) as a readout.
 
 % parameters 
 yield = 0.65;
@@ -34,15 +34,10 @@ model.parsedGPR = parsedGPR;
 modelType = 2; % 2 for generic C. elegans model. The default (if not specified) is 1, for the tissue model
 speedMode = 1;
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
-% this is to force the nutrient to be efficiently used instead of wasted in
-% bulk
-% add the disassimilation constraints 
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -79,14 +74,15 @@ relCap_minLow, relCap_metFit, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S
 % to strictly control the randomization, we use the setup for full modeling
 % integration and keep all parameters the same;
 
-% fitting metrics
+% fitting metrics in real data 
 minLow = myCSM.minLow;
 highFit = myCSM.N_highFit/length(myCSM.HGenes);
 zeroFit = myCSM.N_zeroFit/length(myCSM.RLNames);
 FluxBurdenFit = myCSM.minTotal;
 minMet = myCSM.minMetBalanceLoss;
 
-% calculate the total weighted flux (or the metabolite split fitness score)
+% calculate the total weighted flux (this metric is not used in the
+% published ms)
 MetFlux = 0;
 branchMets = unique(branchTbl.mets);
 for ii = 1:length(branchMets)
@@ -206,7 +202,7 @@ parfor i = 1:(nrand+1)
         currentCosinePick = currentCosinePick + sum(inds);
     end
     
-    % run iMAT++
+    % run iMAT-WPS
     try
         myCSM = struct(); % myCSM: my Context Specific Model
                 [myCSM.OFD,...
@@ -228,7 +224,8 @@ parfor i = 1:(nrand+1)
                 = IMATplusplus_wiring_triple_inetgration_final(model_coupled,epsilon_f,epsilon_r, ExpCateg, branchTbl_rand, modelType,speedMode,...
                 relCap_minLow, relCap_metFit, 1, 0, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10);
         
-        % since we only look at the fitting metrics, we skip the OFD
+        % since we only look at the fitting metrics, we skip the OFD (by
+        % setting doLatent = 0
         % fitting and stops at PFD
 
         % save the fitting metrics
@@ -266,7 +263,8 @@ WaitMessage.Destroy
 save('output/randomization/randomization_DE_similarity_fitting.mat',"fit_rate_high","fit_rate_zero","fit_rate_minLow","fit_rate_minPFD","fit_rate_minMet","fit_rate_minMet_norm");
 
 %% plot figures
-
+% As a QC, make sure there is no NA in fitting (meaning no randomization
+% errored out)
 any(isnan(fit_rate_minMet))
 
 figure;

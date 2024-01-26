@@ -1,7 +1,13 @@
 function a2_1_iMATpp_no_data(yield)
+%% summary
+% execute the iMAT-WPS without any data integration (so only with yield
+% constraint). This produced OFD essentially identical to pFBA flux
+% distribution with the same yield and worm biomass constraints. 
+
+%% run
 % Load model - this is the same across all five integrations 
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat'); 
 
 % setup the model
 model = configurateModel(model);
@@ -13,7 +19,7 @@ model.parsedGPR = parsedGPR;
 modelType = 2; % 2 for generic C. elegans model. The default (if not specified) is 1, for the tissue model
 speedMode = 1;
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS (actually iMAT++ code) with yield constraint
 
 % make an empty gene category (all as dynamic)
 ExpCateg = struct();
@@ -31,12 +37,12 @@ ExpCateg.nonresponsive = {};
 model.lb(strcmp(model.rxns,'BIO0010')) = 0.8;
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
+% we use the biomass yield rate to constrain the bacteria waste
 % this is to force the nutrient to be efficiently used instead of wasted in
 % bulk
-% add the disassimilation constraints 
 model_coupled = model;
-model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
+model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns)); % add one line of constraints in the S matrix
+% yield * V(EXC0050) + V(BIO0010) >= 0 (V(EXC0050) is a negative number)
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
 model_coupled.csense(end+1) = 'G';
@@ -66,12 +72,13 @@ myCSM.latentRxn,...
 myCSM.Nfit_latent,...
 myCSM.wasteDW]...
 = IMATplusplus_wiring_dual_integration_final(model_coupled,epsilon_f,epsilon_r, ExpCateg, modelType,speedMode,...
-1e-5, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10); % IMATplusplus_wiring_dual_integration_final is generally similar to original iMAT++ since it doesnt have the metabolite coupling integration step
+1e-5, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10); 
+% IMATplusplus_wiring_dual_integration_final is generally similar to original iMAT++ since it doesnt have the metabolite coupling integration step
 
 myCSM_no_data = myCSM;
 
 % NOTE: this flux distribution is equvelent to that obtained by directly 
-% minimization of total flux on model_coupled (ATPm needs to be changed 
+% minimization of total flux on "model_coupled" (ATPm needs to be changed 
 % to 10); we have confirmed this identity. We used the exact same 
 % integration function to be consistent in the way that the simulation is
 % set up but it is worth noting that this produced distribution is

@@ -1,34 +1,35 @@
 function a2_4_iMATpp_triple_integration(yield, relCap_minLow, relCap_metFit)
-% this integrates absolute expression, responsiveness and DE similarity 
-% information together.
-% allowing two relative cap parameters to control the interaction between
-% the abs_exp/resp. fitting and the metabolite fitting.
+%% summary
+% this is the full iMAT-WPS integration that integrates absolute expression, 
+% WPS responsiveness and similarity information together. To balance the
+% fit of different data in a sequential fitting scheme, we imposed two 
+% relative cap parameters to control the interactions between the fitting 
+% of abs_exp/resp. and that of simularity.
 
 % Load model - this is the same across all five integrations 
-load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
-load('input/WPS/categ_expression_and_WPS.mat');
-branchTbl = readtable('input/WPS/final_branchPoint_table.csv'); % must have 'mets', 'rxn1','rxn2', and 'maxCosine'
+load('./input/model/makeWormModel/iCEL1314_withUptakes.mat'); % model 
+load('./input/model/epsilon_generic_withUptakes.mat'); % precalculated epsilons (see a2_2_run_FVA.m)
+load('input/WPS/categ_expression_and_WPS.mat'); % pre-saved gene category data (see a1_analyze_responsiveness_constraints.m)
+branchTbl = readtable('input/WPS/final_branchPoint_table.csv'); % pre-saved flux split data (see a1_analyze_DEsimilarity_constraints.m); must have 'mets', 'rxn1','rxn2', and 'maxCosine'
 
 % setup the model
-model = configurateModel(model);
+model = configurateModel(model); % setup model constraints and modifications 
 model = changeRxnBounds(model,'EXC0050',-1000,'l');% free bacteria uptake for integration
 parsedGPR = GPRparser_xl(model);% Extracting GPR data from model
 model.parsedGPR = parsedGPR;
 
 % Set parameters
-modelType = 2; % 2 for generic C. elegans model. The default (if not specified) is 1, for the tissue model
-speedMode = 1;
+modelType = 2; % 2 for generic C. elegans model. 
+speedMode = 1; % lowest speed but highest numerical precision
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
+% we use the biomass yield rate to constrain the bacteria waste
 % this is to force the nutrient to be efficiently used instead of wasted in
 % bulk
-% add the disassimilation constraints 
+% yield * V(EXC0050) + V(BIO0010) >= 0 (V(EXC0050) is a negative number)
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -41,7 +42,7 @@ model_coupled.metNames(end+1) = {'Pseudo-metabolite that represents a constraint
 model_coupled.mets(end+1) = {['NonMetConst',num2str(length(model_coupled.mets))]};
 
 
-% iMAT++
+% iMAT-WPS
 myCSM = struct(); % myCSM: my Context Specific Model
 [myCSM.OFD,...
 myCSM.PFD,...
@@ -65,9 +66,11 @@ myCSM.minimizedLowRxns]...
 = IMATplusplus_wiring_triple_inetgration_final(model_coupled,epsilon_f,epsilon_r, ExpCateg, branchTbl, modelType,speedMode,...
 relCap_minLow, relCap_metFit, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10);
 
-% here, since we integrated WPS data in both minLow and metFit steps, we
+% note, since we integrated WPS data in both minLow and metFit steps, we
 % give them equal priority as well as flexibility in fitting, thus, 5%
-% relative cap for both.
+% relative cap for both (relCap_minLow, relCap_metFit).
+
+% other parameters were kept default for general iMAT++ integration. 
 
 myCSM_exp_resp_simi = myCSM;
 save('output/integration_output/myCSM_exp_resp_simi.mat','myCSM_exp_resp_simi');

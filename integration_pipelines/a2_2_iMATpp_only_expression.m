@@ -1,7 +1,12 @@
 function a2_2_iMATpp_only_expression(yield)
+%% summary
+% essentially this is running iMAT++ integration on the gene categories
+% defined using WPS absolute expression levels. 
+
+%% run
 % Load model - this is the same across all five integrations 
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat');
 load('input/WPS/categ_expression_only.mat');
 
 % setup the model
@@ -22,12 +27,12 @@ ExpCateg.responsive = {};
 ExpCateg.nonresponsive = {};
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
+% we use the biomass yield rate to constrain the bacteria waste
 % this is to force the nutrient to be efficiently used instead of wasted in
 % bulk
-% add the disassimilation constraints 
 model_coupled = model;
-% add the disassimilation constraints 
+% add the yield constraints 
+% yield * V(EXC0050) + V(BIO0010) >= 0 (V(EXC0050) is a negative number)
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -59,9 +64,9 @@ myCSM.Nfit_latent,...
 myCSM.wasteDW]...
 = IMATplusplus_wiring_dual_integration_final(model_coupled,epsilon_f,epsilon_r, ExpCateg, modelType,speedMode,...
 1e-5, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10);
-% note: using IMATplusplus_wiring_triple_inetgration_final with empty
+% note: using "IMATplusplus_wiring_triple_inetgration_final" with empty
 % metabolite table gives equavilent fitting (like total flux and minlow)
-% but a different alternative OFD due to numeric precision. We dont use
+% but a different alternative OFD due to numeric precision. We don't use
 % IMATplusplus_wiring_triple_inetgration_final to avoid any potential bug
 % related to an empty metabolite constraint in the MILP, although it seems
 % OK.

@@ -1,5 +1,8 @@
 %% story of PPshunt
 
+% * CAN BE REMOVED AFTER PUBLICATION * 
+% not used in the ms
+
 % block one of the two and redo FVA of the other 
 % 'RM00705'	0.372765491570059	'Coenzyme A + Nicotinamide adenine dinucleotide + Malonate semialdehyde  -> Acetyl-CoA + CO2 + Nicotinamide adenine dinucleotide - reduced '	'coa[m] + nad[m] + msa[m]  -> accoa[m] + co2[m] + nadh[m] '	-0.372765491570059	2.57143570112192	3.11009820243296	0
 % 'RM00706'	0.00833566554063898	'Coenzyme A + Nicotinamide adenine dinucleotide phosphate + Malonate semialdehyde  -> Acetyl-CoA + CO2 + Nicotinamide adenine dinucleotide phosphate - reduced '	'coa[m] + nadp[m] + msa[m]  -> accoa[m] + co2[m] + nadph[m] '	-0.00833566554063898	0.920940280719251	0.368684648673686	0

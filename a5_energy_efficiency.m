@@ -1,3 +1,8 @@
+%% Summary
+% this script analyzed the theoretical energy generation by burning
+% different bacterial biomass components. Contains several analysis related
+% to Fig. 5. Not all figures produced here were shown in the paper. 
+
 %% load model 
 % Load model - this is the same across all five integrations 
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
@@ -30,7 +35,9 @@ model.mets(end+1) = {['NonMetConst',num2str(length(model.mets))]};
 % physiological conditions)
 model = changeRxnBounds(model,'RM00479', 0, 'l');
 
-model = changeRxnBounds(model,'RCC0005',0,'l');% remove the ATPm
+% remove the ATPm because we are not simulating growth or anything that
+% needs ATPm. We are simulating plain theoretical ATP generation capacity.
+model = changeRxnBounds(model,'RCC0005',0,'l');
 
 %% stoichemitry-focused FBA analysis of theoretical ATP production
 % calculate the maximum ATP production of candidate nutrients
@@ -85,7 +92,9 @@ ATPyield_per_gram % mole ATP per gram
 
 % glucose and ribose are equally well in producing ATP
 
-%% maximize biomass and minimize total flux
+%% Using pFBA to analyze the flux significance of PP shunt and PPP cycle - this is not included in the ms
+
+% maximize biomass and minimize total flux
 % pFBA simulation to see the flux usage in optimal ATP production
 
 obj = 'RCC0005';
@@ -131,7 +140,9 @@ ylabel('Flux in pFBA (mmole/gDW/h)')
 hold off
 saveas(gca, 'figures/energy_efficiency.pdf');
 
-%% sensitivity analysis 
+%% analyzing the theoretical maximum ATP production of burning bacterial biomass and the contribution of each biomass component 
+%% we set this up in a sensitivity analysis 
+
 % first analzye all bulk nutrients
 diet_cmp = {'DGR0001'; % protein
             'DGR0002'; % RNA
@@ -139,7 +150,7 @@ diet_cmp = {'DGR0001'; % protein
             'DGR0005'; % phospholipid
             'DGR0013'; % lps
             'DGR0028'; % glycogen
-            'DGR0011'}; % peptido
+            'DGR0012'}; % peptido
 % atp demand 
 obj = 'RCC0005';
 
@@ -147,13 +158,14 @@ obj = 'RCC0005';
 objFluxMat = [];
 for k = 1:length(diet_cmp)
     qry = diet_cmp{k};
-    
+
+    % get the flux range of a digestion reaction of interest
     testing_model = changeObjective(model, qry);
     maxflux = optimizeCbModel(testing_model);
     objFlux = [];
     
     for i = 0:100
-        testing_model = changeObjective(model, obj);
+        testing_model = changeObjective(model, obj); % calculate the max ATP production with a digestion flux constrained
         testing_model = changeRxnBounds(testing_model,qry,  maxflux.f .* i ./ 100, 'b');
     %     testing_model.S(end+1,:) = zeros(1,length(testing_model.rxns));
     %     testing_model.S(end, ismember(testing_model.rxns, qry)) = 1; 
@@ -174,12 +186,12 @@ end
 plot(0:100, objFluxMat)
 legend(diet_cmp)
 
-% pie chart 
+% pie chart of fully blocking a bacteria biomass component
 testing_model = changeObjective(model, obj);
 myflux = optimizeCbModel(testing_model);
 maxATP = myflux.f;
 deltaATP = maxATP - objFluxMat(:,1);
-maxATPcontribution = [deltaATP; maxATP - sum(deltaATP)];
+maxATPcontribution = [deltaATP; maxATP - sum(deltaATP)]; % the contribution was defined by the loss of ATP after blocking
 nutrients = {'protein'; % protein
             'RNA'; % RNA
             'DNA'; % DNA
@@ -193,7 +205,7 @@ pie(maxATPcontribution, nutrients);
 title('Contribution to theoretical maximal ATP production');
 saveas(gca, 'figures/max_energy_contribution_all_bulk_nutrients.pdf');
 
-% run special analysis of amino acids
+% run special analysis of blocking amino acids
 all_aa = model.mets(model.S(:,strcmp(model.rxns,'DGR0001')) > 0);
 
 obj = 'RCC0005';
@@ -204,7 +216,7 @@ for k = 1:length(all_aa)
     % change obj to energy
     testing_model = changeObjective(model, obj);
     % block one aa intake
-    testing_model.S(strcmp(model.mets,qry),strcmp(model.rxns,'DGR0001')) = 0;
+    testing_model.S(strcmp(model.mets,qry),strcmp(model.rxns,'DGR0001')) = 0; % we use the trick of changing stoicheomitry matrix to block on amino acid at a time
     myflux = optimizeCbModel(testing_model);
     objFlux = [objFlux, myflux.f];
 end
@@ -226,9 +238,16 @@ saveas(gca, 'figures/max_energy_contribution_AA.pdf');
 %% make plot that includes r1p
 obj = 'RCC0005';
 
-% first block dietary ribose from RNA
+% repeat the above contribution analysis on bacterial ribose (to represent
+% the r1p tracing experiment)
+
 % change obj to energy
 testing_model = changeObjective(model, obj);
+
+% first block dietary ribose from RNA
+% we used a trick of changing the stoichemitry of RNA digestion reaction to
+% only producing the base ring (without the ribose). 
+
 % change amp to ade directly
 testing_model.S(strcmp(testing_model.mets,'ade[c]'), ...
                 strcmp(testing_model.rxns,'DGR0002') ...
@@ -258,9 +277,11 @@ testing_model.S(ismember(testing_model.mets,{'cmp[c]','ump[c]'}), ...
     ) = 0;
 printRxnFormula(testing_model,'DGR0002');
 
+% calculate ATP production again
 myflux = optimizeCbModel(testing_model);
 deltaATP_r1p = maxATP - myflux.f;
 
+% plot
 mixContribution = [deltaATP_r1p;
                    maxATPcontribution_AA(strcmp(nutrients_AA, 'phe-L[c]'));
                    maxATPcontribution_AA(strcmp(nutrients_AA, 'tyr-L[c]'));

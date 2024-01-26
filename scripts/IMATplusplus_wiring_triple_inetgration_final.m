@@ -1,14 +1,18 @@
 function [OFD, PFD, N_highFit, N_zeroFit, minLow, minMetBalanceLoss, minTotal, minTotal_OFD, MILP, MILP_PFD, HGenes, RLNames, OpenGene, latentRxn, Nfit_latent, wasteDW, RHNames, branchMets, minimizedLowRxns] = IMATplusplus_wiring_triple_inetgration_final(model,epsilon_f,epsilon_r,ExpCateg, branchTbl, modelType, speedMode,minLowTol,minCouplingtol,doMinPFD, doLatent,latentCAP,storeProp,SideProp,ATPm,verbose) % bacCoef
-% Uses the iMAT++ algorithm (`Yilmaz et al., 2020`) to find the optimal flux distribution that best fit categorized gene expression data. 
+% Uses the iMAT-WPS algorithm (`REF`) to find the optimal flux distribution 
+% that best fit triple data including, absolute gene expression, WPS 
+% responsiveness and WPS similarity. This function can be applied to other
+% similar dataset and general models. 
 %
-% iMAT++ algorithm performs multi-step fitting to find a flux distribution
-% that best agrees with rarely, lowly and highly expressed genes in the
-% expression profile. It employs a gene-centric feature that minimizes
-% false negative fitting and conflicts due to ambiguous GPR assignment. 
+% iMAT-WPS algorithm performs multi-step fitting to find a flux distribution
+% that best agrees with categorized gene expression data based on expression 
+% levels and WPS responsiveness, and simontanously the WPS similarity data. 
+% It builds upon the previous iMAT++ algorithm that integrates gene
+% expression data.
 %
 % USAGE:
 %
-%    OFD = IMATplusplus(model,doLatent,storeProp,SideProp,epsilon_f,epsilon_r, ATPm, ExpCatag,doMinPFD,latentCAP,modelType)
+%    OFD = IMATplusplus_wiring_triple_inetgration_final(model, epsilon_f, epsilon_r, ExpCatag, branchTbl, modelType)
 %
 % INPUTS:
 %    model:             input model (COBRA model structure)
@@ -20,6 +24,10 @@ function [OFD, PFD, N_highFit, N_zeroFit, minLow, minMetBalanceLoss, minTotal, m
 %                       The `ExpCateg` should be a structure variable with "high", "low", "dynamic" and
 %                       "zero" four fields. See the walkthrough scripts (and our Github) on how to generate
 %                       them from raw expression quantification data (i.e., TPM)
+%    branchTbl:         table listing all producing/consuming (P/C)
+%                       reaction pairs to be integrated with iMAT-WPS. Must
+%                       have must have 'mets', 'rxn1','rxn2', and
+%                       'maxCosine' columns. 
 % OPTIONAL INPUTS:
 %    modelType:         an integer to specify the input COBRA model. 
 %                       1 == dual C. elegans tissue model
@@ -43,17 +51,17 @@ function [OFD, PFD, N_highFit, N_zeroFit, minLow, minMetBalanceLoss, minTotal, m
 %                       speed. In level 2, we only release MILP strigency.
 %                       But in general, the three modes give similar flux
 %                       predictions.
-%    minLowTol:         the numerical tolerance for total flux of the 
+%    minLowTol:         the relative tolerance for total flux of the 
 %                       reactions dependent on lowly and rarely expressed 
 %                       genes. This parameter tunes the strigency of 
 %                       constraining low reaction fluxes to the minimal level.
-%                       Default value (1e-5) provides very strigent constraint
-%                       that pushes the total flux to the minimal level.
-%                       However, if the lowly expressed and rarely expressed
-%                       genes extensively conflict with highly expressed
-%                       genes, we recommend to use a larger tolerance such 
-%                       as the default epsilon (ideally allowing one
-%                       mis-fitting).
+%                       Default value (0.05, 5%) provides a balance between
+%                       fitting of expression+responsiveness data and that
+%                       of similarity data. 
+%    minCouplingtol:    the relative tolerance for the objective function
+%                       fitting of the similarity data. Default is 0.05 (5%)
+%                       to offer a good balance between the fitting of
+%                       minLow and that of flux coupling (similarity data).
 %    doMinPFD:          whether to perform flux minimization of PFD 
 %                       (after minimizing total flux for lowly and rarely expressed genes). 
 %                       PFD flux minimization is required to obtain OFD, but  
@@ -63,7 +71,7 @@ function [OFD, PFD, N_highFit, N_zeroFit, minLow, minMetBalanceLoss, minTotal, m
 %    latentCAP:         the total flux cap for recursive fitting of latent
 %                       reactions. The total flux will be capped at (1 +
 %                       latentCAP)*OriginalTotalFlux; The default cap is
-%                       0.01 (1%)
+%                       0.05 (5%)
 %    storeProp:         (dual-C. elegans tissue network only, use empty ('[]') for other models) the maximum allowed storage molecule uptake, as w/w percentage of bacteria uptake                  
 %    SideProp:          (dual-C. elegans tissue network only, use empty ('[]') for other models) the maximum allowed side metabolites uptake, as w/w percentage of bacteria uptake                  
 %    ATPm:              (C. elegans network only, use empty ('[]') for other models) the Non Growth Associated Maintenance (NGAM) used in fitting               
@@ -82,24 +90,30 @@ function [OFD, PFD, N_highFit, N_zeroFit, minLow, minMetBalanceLoss, minTotal, m
 %   minTotal_OFD:       the minimal total flux of OFD
 %   MILP:               the MILP problem (in COBRA format) in the final
 %                       flux minimization of OFD. This MILP can serve as a
-%                       startpoint for any further analysis such FVA.
+%                       startpoint for any further analysis such FVA. This
+%                       is referred to as Optimal Flux Model (OFM) in the
+%                       paper.
 %   MILP_PFD:           the MILP problem (in COBRA format) right before the
 %                       first Flux minimization. This MILP is readily
 %                       constrained for high/zero genes' fitting , and flux
 %                       minimization of low reactions. This includes all
 %                       data-driven constraints, so it is a conservative 
 %                       but good startpoint for further custom analysis.
+%                       This is referred to as Primary Flux Model (PFM) in
+%                       the paper.
 %   HGenes:             the list of highly expressed genes to be fitted
 %   RLNames:            the list of reactions dependent on rarely expressed genes
 %   OpenGene:           the list of fitted (carrying flux) highly expressed genes
 %   latentRxn:          the list of all identified latent reactions to be fitted 
 %   Nfit_latent:        the (total) number of latent reactions fitted
 %   wasteDW:            (C. elegans network only) the percentage of wasted bacterial biomass (DW/DW)
-
+%   RHNames:            List of "on" reactions in the fitting.
+%   branchMets:         List of metabolites whose flux splits are fitted
+%   minimizedLowRxns    List of low reactions whose flux are minimized.
 %
-% `Yilmaz et al. (2020). Final Tittle and journal.
+% `Author. (202x). Final Tittle and journal.
 %
-% .. Author: - (COBRA implementation) Xuhang Li, Mar 2020
+% .. Author: - (COBRA implementation) Xuhang Li, Mar 202x
 %% this is the main integration function
 % apply default parameters
 if (nargin < 6) % type of the input model 

@@ -1,12 +1,28 @@
+%% Summary
+% analyze the WPS similarity profiles to identify the flux-coupling
+% reaction pairs that are to be integrated in iMAT-WPS. This scripts will
+% identify such pairs and run a few quality checks to ensure the data is
+% consistent with the hypothesis. This script produces the input table
+% needed for running iMAT-WPS
+
 %% parameters 
+
+% set the significant cosine threshod; gene pairs with similarity higher
+% than the threshold will be included in the analysis. This threshold is a
+% rough heuristic estiamte based on the distributions of maximum cosines
+% (see REWIRING paper for details).
 sigCosine = 0.2;
 
 %% load the tables
+% load DE similarity matrix 
 DEsim = readtable('./../../MetabolicLibrary/2_DE/output/cosineSimilarity_FC_denoised_stationery_metabolic.csv','ReadRowNames',true);
+% load model
 load('input/model/makeWormModel/iCEL1314_withUptakes.mat');
+% load some annotation tables
 lookupTbl = readtable('./input/model/IDtbl.csv');
 condInfo = readtable('./../../MetabolicLibrary/2_DE/output/RNAi_condition_metaInfo.csv');
-
+% load the flux capacity defined by running FVA (this FVA code is provided
+% in a2_1_run_integration.m
 load('input/model/capacity_generic_withUptakes.mat');
 % update the boundary -- so indirectly inreversible reactions are now noted
 % in its boundary 
@@ -15,8 +31,10 @@ model.lb(~capacity_r) = max(model.lb(~capacity_r),zeros(sum(~capacity_r),1));
 
 %% analyze branching points
 % loop through all metabolites and look at all metabolites with DE similarity
-% data. how much DE similarity is related to a branching point?
+% data. This is to identify all producing/consuming reaction pairs (P/C pair)
+% in the network that are associated with WPS DE similarity data
 
+% gether measured genes (responsive genes in the WPS dataset)
 measuredGenes = condInfo.RNAi_WBID(ismember(regexprep(regexprep(condInfo.RNAiID,' ','_'),'\.','_'), DEsim.Properties.VariableNames));
 measuredGenes = lookupTbl.ICELgene(ismember(lookupTbl.WormBase_Gene_ID, measuredGenes));
 branchTbl = table(); % first inspect all possible pairs in all branches with data
@@ -120,6 +138,8 @@ for i = 1:length(model.mets)
                 else
                     error('there is a bug in the logic')
                 end
+                % make the reaction-reaction DE similarity metric by
+                % taking the maximum 
                 geneset1 = model.genes(model.rxnGeneMat(strcmp(model.rxns,myrxns(ii)),:) == 1);
                 geneset2 = model.genes(model.rxnGeneMat(strcmp(model.rxns,myrxns(jj)),:) == 1);
                 subMat = DEsim(ismember(RNAiGeneNameList, geneset1) , ismember(RNAiGeneNameList, geneset2));
@@ -138,7 +158,7 @@ for i = 1:length(model.mets)
                     subMat{:,ismember(subMat.Properties.VariableNames, regexprep(subMat.Properties.RowNames,'\.','_'))} = nan;
                     subMat{ismember(regexprep(subMat.Properties.RowNames,'\.','_'), subMat.Properties.VariableNames),:} = nan;
                 end
-                
+                % take maximum and save data
                 cosines = [cosines; {subMat}];
                 maxCosine = [maxCosine; max(max(subMat{:,:}))]; % to enrich for signals, we consider use the maximum to represent any possible coupling
             end
@@ -154,7 +174,7 @@ branchTbl.formula2 = printRxnFormula(model,branchTbl.rxn2, 0);
 
 writetable(branchTbl,'input/WPS/all_branchPoint_table.csv');
 
-% next, produce the table of significant couplings for integration
+% next, produce the table of significant couplings for integration use
 
 % when the two reactions are both producing or comsuming, it usually links
 % to the common influence in downstream or upstream (like both cause energy
@@ -167,7 +187,7 @@ for i = 1:size(branchTbl2,1)
     branchTbl2.degree(i) = sum(model.S(strcmp(model.mets, branchTbl2.mets{i}),:) ~= 0);
 end
 
-% check for metabolites with more than one pairs 
+% Quality check: check for metabolites with more than one pairs 
 % if it is more than a pair of reaction, we should check if it is a big
 % inter-correlated group; if not, it may not indicate flux wiring
 
@@ -195,7 +215,7 @@ FinalBranchTbl = branchTbl2(ismember(branchTbl2.mets, [npair([npair{:,2}] == 1,1
 % to the fact that many of these were driven by a single genes used in many
 % reactions). 
 %% we manully inspected these and clean up the suspicous ones
-i = 3;
+i = 3; % change this 'i' to inspect each of the noPassMet
 allPairs = branchTbl2(strcmp(branchTbl2.mets, noPassMet{i}),:);
 % we consider it as a graph and check for Connected graph components;
 % if there is only one, it is good
@@ -224,7 +244,7 @@ writetable(FinalBranchTbl,'input/WPS/final_branchPoint_table.csv');
 % related to 198 unique RNAi conditions and 182 unique genes
 %% save figures for this
 % the pie chart to show number of responsive gene covered 
-% also some numbers 
+% also some numbers first
 N_met = length(unique(FinalBranchTbl.mets));
 N_met_noComp = length(unique(regexprep(FinalBranchTbl.mets,'\[(m|c|e)\]$','')));
 N_reaction = length(unique([FinalBranchTbl.rxn1; FinalBranchTbl.rxn2]));

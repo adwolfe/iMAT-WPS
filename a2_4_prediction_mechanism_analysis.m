@@ -1,16 +1,22 @@
 %% summary
 % To disentangle the mechanistic link between a fitting input (eg a
-% responsive gene) and the flux outcome, we do LOO and LOI analysis once
-% at a time, and analyze the responsivness integration and the DE
-% similarity integration seperately. 
+% responsive gene) and the flux outcome, we do Leave-one-out (LOO) 
+% and LOI analysis once at a time, and analyze the responsivness 
+% integration and the DE similarity integration seperately. 
 
 % alternatively one can do LOO and LOI directly on top of the full
 % integration model, however, the interpretation of this result can be
-% complex due to a complicated integration context in each LOO and LOI.
+% complex due to a complicated integration context in each LOO and LOI (aka
+% interactions between different constraints).
+
 % Therefore, we go for the above more interpretable strategy. 
 
+%% NOTICE
+% THIS ANALYSIS WAS DONE IN A COMPUTATIONAL CLUSTER USING CODES IN
+% 'cluster_codes_for_mechanisms' FOLDER. THE CODES IN THIS SCRIPT IS ONLY
+% TO VISUALIZE AND ORGANIZE THE RESULTS. 
 
-%% about the mechanism 
+%% notes about the prediction mechanism 
 % there are four types of mechansim analyses, each with its own pros and
 % cons in understanding the prediction, due to the complex interactions
 % between exp, responsiveness and similarity constraints. The four are: LOO
@@ -32,7 +38,7 @@
 % model and more than LOO (eg leave multiple out) or educated guesses). 
 
 
-%% about LOO and LOI
+%% notes about LOO and LOI analysis
 % LOO is more deterministic on the prediction mechanism since if an effect
 % is lost after LOO, it has to be an direct effect of the constraint;
 % However, LOI is often suggestive and can be misleading. This is because
@@ -49,7 +55,7 @@
 
 
 
-%% combine the cluster run output and generate the heatmap 
+%% combine the cluster output and generate the heatmap 
 
 % we load the two analysis based on dual models (exp+sim and exp+resp);
 % this gives a simpler (more intuitive) result for the link of single
@@ -65,7 +71,7 @@ predTbl2 = readtable('output/mechanism_analysis/fluxTable_ann_responsiveness.csv
 predTbl.related_responsiveness_constraints = predTbl2.related_responsiveness_constraints;
 writetable(predTbl,'output/fluxTable_putative_mechanism_annotated.csv');
 
-% change the human readible annotation back to a matrix
+% change the human readable annotation back to a matrix
 branchTbl = readtable('input/WPS/final_branchPoint_table.csv'); % must have 'mets', 'rxn1','rxn2', and 'maxCosine'
 allMets = unique(branchTbl.mets);
 load('input/WPS/categ_expression_and_WPS.mat');
@@ -149,6 +155,7 @@ ylabels = {resp_depend, resp_depend, simi_depend, simi_depend};
 xlabels = {allGenes, allGenes, allMets, allMets};
 names = {'responsiveness_LeaveOneOut','responsiveness_LeaveOneIn','similarity_LeaveOneOut','similarity_LeaveOneIn'};
 
+% visualize in a heatmap
 for i = 1:4
     distMethod = 'euclidean';
     inputMat = data{i};

@@ -7,7 +7,7 @@ addpath scripts/
 addpath ./../../MetabolicLibrary/9_FBA_modeling/PlotPub/lib/
 initCobraToolbox(false);
 
-%% about - part I
+%% summary - part I
 % To justify the responsiveness analysis, the simplest test is to see if
 % responsive genes are conflicting with nonresponsive genes at GPR level;
 % the following code performs such randomization
@@ -15,7 +15,7 @@ initCobraToolbox(false);
 % eg. A & B where A is responsive but B is not.
 
 %% randomization
-% to measure the conflict level at GPR, we count the number of 
+% to measure the conflict level at GPR level, we count the number of 
 % non-responsive genes (has influence on the reaction) in the responsive 
 % reaction (using the GPR parsing script) and do a randomization. 
 
@@ -31,7 +31,7 @@ load('input/WPS/categ_expression_and_WPS.mat');
 % this is the simplest way to parse responsive genes; otherwise it will be
 % complex to determine what reaction should be high reaction to explain a
 % high gene, which might be overinterpreting the data. This is the same as
-% how responsive gene is used in iMAT++.
+% how responsive gene is used in iMAT-WPS.
 resp_rxns = model.rxns(any(model.rxnGeneMat(:,ismember(model.genes, ExpCateg.responsive)),2),1);
 
 % find out all nonresponsive genes that conflict with a responsive reaction
@@ -40,7 +40,7 @@ resp_rxns = model.rxns(any(model.rxnGeneMat(:,ismember(model.genes, ExpCateg.res
 N_conflict = 0; % the number of nonresponsive genes that are conflict with at least one responsive gene
 for i = 1:length(ExpCateg.nonresponsive)
     [~,haseffect, influencedRxn] = deleteModelGenes(model, ExpCateg.nonresponsive{i});
-    if haseffect
+    if haseffect % if the nonresponsive gene is not buffered by GPR itself (like A in "A | B")
         if any(ismember(influencedRxn, resp_rxns))
             N_conflict = N_conflict + 1;
             % conflictedGene = [conflictedGene; ExpCateg.nonresponsive{i}];
@@ -85,6 +85,7 @@ end
 WaitMessage.Destroy
 save('output/randomization/Randomization_GPR_responsiveness_conflict.mat','N_conflict_rand','N_conflict')
 
+% plot 
 figure;
 hold on
 histogram(N_conflict_rand./length(ExpCateg.nonresponsive)*100)
@@ -111,7 +112,11 @@ plt.export(['figures/Randomization_GPR_responsiveness_conflict.pdf']);
 % the total flux through nonresponsive reactions (defined by the reactions
 % whose flux can be directly impacted by the in silico deletion of any 
 % nonresponsive gene) as a readout to assess the level of conflict between
-% high genes (responsive and high expression) and the nonresponsive genes. 
+% high genes (responsive and high expression) and the nonresponsive genes.
+
+% this analysis assess the conflict at the systems (network) level, and
+% require running full iMAT-WPS integration to obtain OFD in each
+% randomization.
 
 clear;
 close all;
@@ -122,7 +127,7 @@ relCap_metFit = 0.05;
 
 %% Load model
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat');
 load('input/WPS/categ_expression_and_WPS.mat');
 branchTbl = readtable('input/WPS/final_branchPoint_table.csv'); % must have 'mets', 'rxn1','rxn2', and 'maxCosine'
 
@@ -136,15 +141,10 @@ model.parsedGPR = parsedGPR;
 modelType = 2; % 2 for generic C. elegans model. The default (if not specified) is 1, for the tissue model
 speedMode = 1;
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
-% this is to force the nutrient to be efficiently used instead of wasted in
-% bulk
-% add the disassimilation constraints 
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -157,7 +157,7 @@ model_coupled.metNames(end+1) = {'Pseudo-metabolite that represents a constraint
 model_coupled.mets(end+1) = {['NonMetConst',num2str(length(model_coupled.mets))]};
 
 
-% iMAT++
+% iMAT-WPS
 myCSM = struct(); % myCSM: my Context Specific Model
 [myCSM.OFD,...
 myCSM.PFD,...

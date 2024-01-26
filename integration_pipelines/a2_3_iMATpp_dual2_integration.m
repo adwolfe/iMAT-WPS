@@ -1,11 +1,14 @@
 function a2_3_iMATpp_dual2_integration(yield, relCap_minLow, relCap_metFit)
+%% summary
 % this integrates absolute expression + DE similarity information.
 % allowing two relative cap parameters to control the interaction between
 % the abs_exp/resp. fitting and the metabolite fitting.
 
+%% run
+
 % Load model - this is the same across all five integrations 
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat'); 
 load('input/WPS/categ_expression_only.mat');
 branchTbl = readtable('input/WPS/final_branchPoint_table.csv'); % must have 'mets', 'rxn1','rxn2', and 'maxCosine'
 
@@ -19,15 +22,14 @@ model.parsedGPR = parsedGPR;
 modelType = 2; % 2 for generic C. elegans model. The default (if not specified) is 1, for the tissue model
 speedMode = 1;
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
+% we use the biomass yield rate to constrain the bacteria waste
 % this is to force the nutrient to be efficiently used instead of wasted in
 % bulk
-% add the disassimilation constraints 
+% yield * V(EXC0050) + V(BIO0010) >= 0 (V(EXC0050) is a negative number)
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -81,7 +83,9 @@ relCap_minLow, relCap_metFit, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S
 % absolute expression (minLow) to 5% relative level to give sufficient 
 % space for the second to be fitted. We set the reletive cap for the second
 % to 1e-6, which essentially makes the abs minMetFit to be capped around
-% 1e-5, thus, perfectly fitted. 
+% 1e-5, thus, perfectly fitted. Applying rigid fitting of similarity data
+% here is to focus on the effect of similarity integration in the benchmark
+% analysis. 
 
 myCSM_exp_simi = myCSM;
 save('output/integration_output/myCSM_exp_simi.mat','myCSM_exp_simi');

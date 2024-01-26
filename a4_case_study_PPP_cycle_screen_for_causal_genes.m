@@ -1,14 +1,10 @@
-%% story of PPP
+%% Identify the key data that drives the cyclic PPP 
 
-% dissect the prediction of PPP 
-% top flux reactions and novel wiring pattern --> driven by responsiveness
-% --> two nonresponsive genes blocking alternative pathways -->
-% surprisingly, independently supported by similarity --> confirmed by
-% modeling (removing the two on top of similarity constraint does not
-% remove the OFD and range stays high) --> high confience for validation
-
-% we first analyze the effect in the expression+responsiveness per
-% mechanistic screen
+% This script is just to repeat the LOO analysis with targeted reaction
+% (the gspd-1 reaction) and check for the genes whose responsiveness have
+% strongest impact on the cyclic PPP. This is motivated by seeing only
+% integrating WPS responsiveness + expression levels is sufficient to
+% narrow down the solution space of PPP to high cyclic flux. 
 
 % parameters 
 yield = 0.65;
@@ -30,7 +26,7 @@ addpath ./../../MetabolicLibrary/9_FBA_modeling/PlotPub/lib/
 initCobraToolbox(false);
 %% Load model
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat');
 load('input/WPS/categ_expression_and_WPS.mat');
 
 % setup the model
@@ -39,7 +35,8 @@ model = changeRxnBounds(model,'EXC0050',-1000,'l');% free bacteria uptake for in
 parsedGPR = GPRparser_xl(model);% Extracting GPR data from model
 model.parsedGPR = parsedGPR;
 
-% SPECIAL TREATMENT FOR ANALYZING PPP
+% SPECIAL TREATMENT FOR ANALYZING PPP - actually doesnt matter for
+% analyzing gspd-1 reaction
 % we noticed that the FVA of PPP back flux is confounded by the two
 % alternatives going to g6p-A and g6p-B. therefore, we block one of the two
 % reaction to reveal actual results.
@@ -52,15 +49,10 @@ speedMode = 1;
 
 % analyze the FVA with candidate responsiveness information removed
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
-% this is to force the nutrient to be efficiently used instead of wasted in
-% bulk
-% add the disassimilation constraints 
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -77,7 +69,7 @@ parforFlag = 0;
 relMipGapTol = 1e-12; % this is to be redone with maximum precision, otherwsie the box will have problem
 verbose = false;
 
-% start program
+% start program - perform LOO analysis for each responsiveness annotation
 h_overall = waitbar(0,'Starting analyzing responsiveness dependency...');
 Maxs = nan(length(queryGenes), length(targetRxns));
 Mins = nan(length(queryGenes), length(targetRxns));
@@ -130,7 +122,9 @@ for zz = 1:length(targetRxns)
             myCSM.wasteDW]...
             = IMATplusplus_wiring_dual_integration_final(model_coupled,epsilon_f,epsilon_r, ExpCateg_tmp, modelType,speedMode,...
             1e-5, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10);
-            
+            % we only focus on analyzing dual integration here
+
+            % FVA
             % loose the soft constraint
             myCSM.MILP_PFD.b(myCSM.MILP.minLowInd) = myCSM.minLow * 1.05;
             [minval1, maxval1] = FVA_MILP(myCSM.MILP_PFD, model_coupled, {targetRxn},parforFlag,relMipGapTol,verbose);
@@ -165,9 +159,10 @@ Mins = Mins';
 OFD_ubs = OFD_ubs';
 OFD_lbs = OFD_lbs';
 
-% these genes caused a big change in solution space
+% these genes caused a big change in solution space (i.e., 50% reduction)
 queryGenes(Mins(2:end) < Mins(1)*0.5)
-
+% this drives us to focus on K07E3.4 and idh-1, together with inspecting
+% the heatmap of systematic LOO and LOI analysis. 
 
 
 

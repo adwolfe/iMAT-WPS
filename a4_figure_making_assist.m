@@ -1,3 +1,9 @@
+%% Summary 
+% this is a helper script to obtain the arrow thickness of the flux
+% distirbution cartoon. It includes detailed information on how were some
+% special arrows calculated (such as a lumped reaction or summary
+% reaction).
+
 %% NOTE
 % the confidence level of PPP back flux and msa degradation was assigned
 % manually to high because they are buffered by alternative reactions
@@ -10,7 +16,7 @@ load('./../input/makeWormModel/iCEL1314_withUptakes.mat');
 flux_triple = myCSM_triple.OFD ./ abs(myCSM_triple.OFD(strcmp(model.rxns,'EXC0050')));
 annTbl = readtable('output\fluxTable_annotated.csv','ReadRowNames',true);
 
-%% check by metabolite
+%% For most arrows, we calculate by checking the metabolite of interest shown in the map
 met = 'g1p[c]'; % 'accoa[c]' leu-L
 tbl3 = listRxn(model,flux_triple,met); % myCSM_merged.OFD
 tbl3 = cell2table(tbl3);
@@ -23,8 +29,7 @@ tbl3.confidence_PFD = annTbl.triple_PFD_bounded(tbl3.tbl31)
 % matter what alternative path to choose in the middle. 
 
 
-
-%% lumped fluxes 
+%% For special arrows that are lumpped or summary reactions, we keep track of the calculation as following.
 %% PPP - F6P
 rxns = {'RC01830','RC01827'};
 tbl3 = listRxn(model,flux_triple,'f6p[c]');

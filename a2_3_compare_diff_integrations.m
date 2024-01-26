@@ -1,5 +1,9 @@
+%% summary
+% this is a scirpt to compare the integration and FVA results of different
+% integration setups. Generates the output table for easy human inspection.
+
 %% set parameters
-sigFlux = 1e-5; 
+sigFlux = 1e-5; % the significant flux threshold to determine bounded vs. unbounded reactions.
 
 %% load the results 
 load('output/integration_output/myCSM_no_data.mat')
@@ -34,8 +38,8 @@ load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
 %% combine the results into a table 
 % make the heatmap of flux, FVA, and narrowing/selection of solution space 
 % if a reaction runs in both direction in FVA (sig flux), it is unbounded 
-% if a reaction is no flux or is unidirectional, it is bounded, so we
-% calcualate the reduction of solution space by the corresponding boundary
+% if a reaction is no flux or is unidirectional, it is bounded.
+
 % finally, check the number of unbounded reactions and reduction of
 % solution space as a measure.
 
@@ -64,6 +68,9 @@ flux_cmp.OFD_no_data = myCSM_no_data.OFD;
 % add in the FVA interval 
 % we cannot normalize FVA interval to per unit bacteria uptake because that
 % needs a special FVA objective (i.e., max and min of Vi/Vbacteria_uptake)
+% so FVA interval comparasion goes with raw flux interval, which may
+% interfere with interpretation as the bacterial uptake rate in different
+% integrations may different a little. 
 flux_cmp.FVA_PFD_exp_resp_simi = FVA.PFD.exp_resp_simi; 
 flux_cmp.FVA_PFD_exp_resp = FVA.PFD.exp_resp; 
 flux_cmp.FVA_PFD_exp_simi = FVA.PFD.exp_simi; 
@@ -86,7 +93,9 @@ flux_cmp.PFD_bounded_no_data  =  (flux_cmp.FVA_PFD_no_data(:,2) < -sigFlux |... 
                                         flux_cmp.FVA_PFD_no_data(:,1) > sigFlux |... % positive flux 
                                         (flux_cmp.FVA_PFD_no_data(:,1) > -sigFlux & flux_cmp.FVA_PFD_no_data(:,2) < sigFlux)); % zero flux 
 
-% % calculate the tightness of solution space - skipped
+% % calculate the tightness of solution space - skipped because of the
+% compilications in the difficulties in normalizing the interval (otheriwse
+% it is not very comparable between integrations)
 % flux_cmp.PFD_tightness_triple = ones(size(flux_cmp,1),1); % 1 = free FVA
 % flux_cmp.PFD_tightness_merged = ones(size(flux_cmp,1),1); % 1 = free FVA
 % flux_cmp.PFD_tightness_merged_alt = ones(size(flux_cmp,1),1); % 1 = free FVA
@@ -165,7 +174,7 @@ writetable(flux_cmp,'output/fluxTable.csv')
 % to show the relationship of bounded rxns in different integrations, we
 % make an euler plot in R 
 % bar plot here is only to display numbers
-%-- there are too many categories - bar plot is not working - go for ruler
+%-- there are too many categories - bar plot is not working - go for euler
 
 
 N_bounded = [sum(flux_cmp.OFD_bounded_exp_resp_simi);
@@ -232,7 +241,8 @@ plt.LegendLoc = 'SouthOutside';
 plt.export(['figures/Number_of_bounded_PFD_reactions.pdf']);
 
 
-% tightness of solution space analysis has been discountinued
+% tightness of solution space analysis has been discountinued for the
+% reasons said above
 % compare the tightness of solution space
 % we need a better metric. normalizing to base doesnt seem very
 % interpretable
@@ -286,6 +296,9 @@ plt.export(['figures/Number_of_bounded_PFD_reactions.pdf']);
 % plt.export(['figures/solution_space_absolute_expression_vs_data_integration.pdf']);
 
 %% make the FVA figures for key reactions 
+
+% systematically visualize the change in solution spaces for a series of
+% reactions of interest.
 
 % show the flux and boundary for each reaction;
 % to display OFD and FVA under the same scale, we show the raw OFD flux instead of normalized flux 
@@ -519,9 +532,9 @@ h.Position(4) = 100*length(glycolysisrxns)+100;  % for example, set the height t
 saveas(h, 'figures/flux_comparison_glycolysis.pdf');
 
 % --> the two constraints, responsiveness and similarity synergistically
-% narrow down the solution space (if we claim this, we need a simulation
-% with only exp + similarity)
-%% metabolite splits
+% narrow down the solution space 
+%% visualize metabolite splits
+% accoa as an example
 met = 'accoa[m]'; % 'accoa[c]' leu-L
 [h1 h2] = plotContribution(model,myCSM_no_data.OFD,met); % myCSM_merged.OFD
 saveas(h1, 'figures/flux_contribution_accoa_prod_no_data.pdf');

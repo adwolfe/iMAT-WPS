@@ -1,3 +1,5 @@
+%% * REMOVE AFTER PUBLICATION *
+
 %% about the mechanism 
 % there are four types of mechansim analyses, each with its own pros and
 % cons in understanding the prediction, due to the complex interactions

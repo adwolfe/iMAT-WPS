@@ -1,21 +1,14 @@
-%% story of PPP
+%% summary: case study of PPP
 
-% dissect the prediction of PPP 
-% top flux reactions and novel wiring pattern --> driven by responsiveness
-% --> two nonresponsive genes blocking alternative pathways -->
-% surprisingly, independently supported by similarity --> confirmed by
-% modeling (removing the two on top of similarity constraint does not
-% remove the OFD and range stays high) --> high confience for validation
+% since cyclic PPP is one of the most obvious and interesting predictions
+% out of the integration, we performed detailed case study on how this is
+% predicted. 
 
-% ps:we found that the prediction of cyclic PPP in triple integration is insensitive 
-% to the treatment of nadph nadh cycles. The cyclic PPP flux is still
-% tightly bounded even without blocking any nadph cycles. But as expected,
-% the prediction of cyclic PPP in dual integration of responisiveness and
-% expression level is sensitive. When not blocking, the cyclic PPP flux is
-% nearly unbounded. 
-
-% we first analyze the effect in the expression+responsiveness per
-% mechanistic screen
+% by inspecting the LOO and LOI analysis results, we focused on two
+% responsiveness constraints: nonresponsive genes K07E3.4 and idh-1. We
+% repeated the LOI and LOO analysis of these two genes and focused on the 
+% solution space of PPP reactions. And here we performed the analysis only
+% by dual integration of expression data and responsiveness.
 
 % parameters 
 yield = 0.65;
@@ -36,7 +29,7 @@ addpath integration_pipelines
 initCobraToolbox(false);
 %% Load model
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat');
 load('input/WPS/categ_expression_and_WPS.mat');
 
 % setup the model
@@ -46,27 +39,23 @@ parsedGPR = GPRparser_xl(model);% Extracting GPR data from model
 model.parsedGPR = parsedGPR;
 
 % SPECIAL TREATMENT FOR ANALYZING PPP
-% we noticed that the FVA of PPP back flux is confounded by the two
+% we noticed that the FVA of PPP back flux (RC03321) is confounded by the two
 % alternatives going to g6p-A and g6p-B. therefore, we block one of the two
-% reaction to reveal actual results.
-% block the f6p to g6p-A to study valid flux variability 
+% reaction to reveal actual solution space. 
+
+% block the f6p to g6p-A (choosing g6p-A versus g6p-B is arbiturary) to study valid flux variability 
 model = changeRxnBounds(model,'RC02740',0,'b'); 
 
 % Set parameters
-modelType = 2; % 2 for generic C. elegans model. The default (if not specified) is 1, for the tissue model
+modelType = 2; % 2 for generic C. elegans model.
 speedMode = 1;
 
 % analyze the FVA with candidate responsiveness information removed
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
-% this is to force the nutrient to be efficiently used instead of wasted in
-% bulk
-% add the disassimilation constraints 
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -83,7 +72,7 @@ parforFlag = 0;
 relMipGapTol = 1e-12; % this is to be redone with maximum precision, otherwsie the box will have problem
 verbose = false;
 
-% start program
+% start program - LOO analysis of these candidate gene's responsiveness
 h_overall = waitbar(0,'Starting analyzing responsiveness dependency...');
 Maxs = nan(length(queryGenes), length(targetRxns));
 Mins = nan(length(queryGenes), length(targetRxns));

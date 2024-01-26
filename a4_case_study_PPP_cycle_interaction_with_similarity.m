@@ -1,14 +1,21 @@
-%% story of PPP
+%% summary: case study of PPP
 
-% dissect the prediction of PPP 
-% top flux reactions and novel wiring pattern --> driven by responsiveness
-% --> two nonresponsive genes blocking alternative pathways -->
-% surprisingly, independently supported by similarity --> confirmed by
-% modeling (removing the two on top of similarity constraint does not
-% remove the OFD and range stays high) --> high confience for validation
+% since cyclic PPP is one of the most obvious and interesting predictions
+% out of the integration, we performed detailed case study on how this is
+% predicted. 
 
-% next, we analyze it under the full model to see the effect from
-% similarity
+% by inspecting the LOO and LOI analysis results, we focused on two
+% responsiveness constraints: nonresponsive genes K07E3.4 and idh-1. We
+% repeated the LOI and LOO analysis of these two genes in more diverse
+% setup (full triple integration and single versus dual left out) and 
+% focused on the solution space of PPP reactions.
+
+% ps: we found that the prediction of cyclic PPP in triple integration is insensitive 
+% to the treatment of nadph/nadh cycles. The cyclic PPP flux is still
+% tightly bounded even without blocking any nadph cycles. But as expected,
+% the prediction of cyclic PPP in dual integration of responisiveness and
+% expression level is sensitive. When not blocking, the cyclic PPP flux is
+% nearly unbounded. (data not shown)
 
 % parameters 
 yield = 0.65;
@@ -17,7 +24,7 @@ relCap_metFit = 0.05;
 
 % the reaction of interest
 targetRxns = {'RC02736','RC02035','RC01528','RC01529','RC01641','RC01830','RC01827','RC03321'};
-queryGenes = {{'K07E3.4'},{'idh-1'},{'K07E3.4', 'idh-1'}};
+queryGenes = {{'K07E3.4'},{'idh-1'},{'K07E3.4', 'idh-1'}}; % remove one gene info, or two genes together
 mytype = 1; % 1 for LOO and 2 for LOI
 
 %% add paths
@@ -30,7 +37,7 @@ addpath ./../../MetabolicLibrary/9_FBA_modeling/PlotPub/lib/
 initCobraToolbox(false);
 %% Load model
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
-load('./input/model/epsilon_generic_withUptakes.mat'); % see walkthrough_generic.m for guidance on generating the epsilon values
+load('./input/model/epsilon_generic_withUptakes.mat');
 load('input/WPS/categ_expression_and_WPS.mat');
 branchTbl = readtable('input/WPS/final_branchPoint_table.csv'); % must have 'mets', 'rxn1','rxn2', and 'maxCosine'
 
@@ -41,10 +48,11 @@ parsedGPR = GPRparser_xl(model);% Extracting GPR data from model
 model.parsedGPR = parsedGPR;
 
 % SPECIAL TREATMENT FOR ANALYZING PPP
-% we noticed that the FVA of PPP back flux is confounded by the two
+% we noticed that the FVA of PPP back flux (RC03321) is confounded by the two
 % alternatives going to g6p-A and g6p-B. therefore, we block one of the two
-% reaction to reveal actual results.
-% block the f6p to g6p-A to study valid flux variability 
+% reaction to reveal actual solution space. 
+
+% block the f6p to g6p-A (choosing g6p-A versus g6p-B is arbiturary) to study valid flux variability 
 model = changeRxnBounds(model,'RC02740',0,'b'); 
 
 % Set parameters
@@ -54,15 +62,10 @@ allMets = unique(branchTbl.mets);
 
 % analyze the FVA with candidate responsiveness information removed
 
-% run iMAT++ with yeild constraint
+% run iMAT-WPS with yeild constraint
 
 % set up the yield constraint
-% we use the constraint (disassimilation) rate to constrain the bacteria waste
-% this is to force the nutrient to be efficiently used instead of wasted in
-% bulk
-% add the disassimilation constraints 
 model_coupled = model;
-% add the disassimilation constraints 
 model_coupled.S(end+1,:) = zeros(1,length(model_coupled.rxns));
 model_coupled.S(end, strcmp('EXC0050',model_coupled.rxns)) = yield; 
 model_coupled.S(end, strcmp('BIO0010',model_coupled.rxns)) = 1; 
@@ -76,10 +79,11 @@ model_coupled.mets(end+1) = {['NonMetConst',num2str(length(model_coupled.mets))]
 
 % basic FVA parameters
 parforFlag = 0;
-relMipGapTol = 1e-12; % this is to be redone with maximum precision, otherwsie the box will have problem
+relMipGapTol = 1e-12; % highest numerical precision
 verbose = false;
     
 % start program
+% we interatively perform integration and FVA
 h_overall = waitbar(0,'Starting analyzing similarity dependency...');
 Maxs = nan(length(queryGenes), length(targetRxns));
 Mins = nan(length(queryGenes), length(targetRxns));
@@ -113,8 +117,9 @@ for zz = 1:length(targetRxns)
             end
             ExpCateg_tmp.responsive = responsive;
             ExpCateg_tmp.nonresponsive = nonresponsive;
-        
-        
+    
+
+            % we run the full integration here 
             myCSM = struct(); % myCSM: my Context Specific Model
             [myCSM.OFD,...
             myCSM.PFD,...
@@ -136,9 +141,11 @@ for zz = 1:length(targetRxns)
             myCSM.branchMets]...
             = IMATplusplus_wiring_triple_inetgration_final(model_coupled,epsilon_f,epsilon_r, ExpCateg_tmp, branchTbl, modelType,speedMode,...
             relCap_minLow, relCap_metFit, 1, 1, 0.05, [size(model.S,1)-1 0.01],[size(model.S,1) 0.01],10);
+
             % the above caps (relCap_minLow, relCap_metFit) is used
             % directly in FVA
 
+            % FVA on the reactions of interest
             [minval1, maxval1] = FVA_MILP(myCSM.MILP_PFD, model_coupled, {targetRxn},parforFlag,relMipGapTol,verbose);
             
             [minval2, maxval2] = FVA_MILP(myCSM.MILP, model_coupled, {targetRxn},parforFlag,relMipGapTol,verbose);
@@ -159,8 +166,6 @@ for zz = 1:length(targetRxns)
 
     waitbar(zz/length(targetRxns),h_overall)
 end
-
-% checkTbl = branchTbl(ismember(branchTbl.mets, driverMets),:);
 
 %% plot the result
 mytext = strcat(targetRxns,':',{' '}, printRxnFormula(model,targetRxns,0));

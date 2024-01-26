@@ -1,12 +1,15 @@
 %% Overview
 % analyze the responsiveness of genes in the iCEL model and convert it into
 % iMAT++ categories. The absolute expression of genes in WT animals were
-% also analyzed and used to make gene categories. 
+% also analyzed and used to make gene categories. This script produces the
+% input files needed for running iMAT-WPS.
 
 mkdir(['input/WPS/']);
 addpath ./../../MetabolicLibrary/7_FBA_modeling/PlotPub/lib/
 
+%% I: the absolute gene expression integration
 %% load the absolute expression data
+% we load the TPM calculated by combining the entire WPS dataset
 TPM = readtable('./../../MetabolicLibrary/1_QC_dataCleaning/outputs/WT_TPM.csv','ReadRowNames',1);
 TPM.Properties.RowNames = TPM.WBID;
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
@@ -20,6 +23,10 @@ proteinCodingGenes = wormbaseTbl.WormBaseID(strcmp(wormbaseTbl.Type,'protein cod
 proteinCodingInd = ismember(TPM.Properties.RowNames,proteinCodingGenes);
 
 %% gene categorization based on absolute expression
+% to better capture the entire distribution of gene expression, we used the
+% whole-dataset-averege TPM in the curve fitting (this is similar to what
+% we did in the C. elegans tissue flux paper, Yilmaz, Li, et al., 2020,
+% MSB)
 fitData = TPM.whole_dataset_TPM(proteinCodingInd);% we perform guassian fitting only on metabolic genes
 iCELData = TPM.whole_dataset_TPM(metGenesInd);% we perform guassian fitting only on metabolic genes
 %fitData = fitData(:);
@@ -53,7 +60,8 @@ hold off
 xlabel('TPM')
 ylabel('Probability Density')
 
-% label the desired cutoff
+% label the desired cutoff - which is sigma1 and which is sigma2 may change
+% if the data is changed
 xline(fit.mu(1) + 1*sqrt(fit.Sigma(1)),'--k');
 fit.mu(1) + 1*sqrt(fit.Sigma(1))
 xline(fit.mu(2),'--k');
@@ -108,9 +116,10 @@ ExpCateg.dynamic = GeneID(myTPM >= low2dynamic & myTPM < dynamic2high);
 ExpCateg.high = GeneID(myTPM >= dynamic2high);
 % the uncalled genes (i.e., NA and ND) are in dynamic (moderately expressed)
 ExpCateg.dynamic = [ExpCateg.dynamic; metgenes(~ismember(metgenes,GeneID))];
+% save for use in iMAT-WPS
 save(['input/WPS/categ_expression_only.mat'],'ExpCateg');
 
-%% save the pie chart of gene category
+%% VISUALIZATION: save the pie chart of gene category
 text = strcat(fieldnames(ExpCateg),'=',num2str(structfun(@length,ExpCateg)));
 % create pie chart
 pie(structfun(@length,ExpCateg), false(length(fieldnames(ExpCateg)),1), text);
@@ -128,7 +137,8 @@ plt.TickDir = 'out';
 plt.LegendLoc = 'NorthWest';
 plt.export(['figures/absolute_expression_categorization_piechart.pdf']);
 
-%% integrate the DE responsiveness in the iMAT++ integration
+%% II: integrate the DE responsiveness
+%% first do some data cleaning before use
 % the genes carrying flux
 DEtbl = readtable('./../../MetabolicLibrary/2_DE/output/DE_merged_clean_pcutoff_0.005_master_table_FDR2d0.1_FC1.5_FCtype_log2FoldChange_raw_ALL.csv');
 % conditionInfo = readtable('./../../MetabolicLibrary/2_DE/output/RNAi_condition_metaInfo.csv');
@@ -188,10 +198,10 @@ nonresponsive_self_not_down = setdiff(nonresponsive_genes, nonresponsive_self_do
 nonresponsive_self_not_down_high_expressed = intersect(nonresponsive_self_not_down, ExpCateg.high);
 
 % merge the sets
-ToHighGenes = unique([responsive_genes; pheno_genes]);
-ToZeroGenes = setdiff(nonresponsive_genes, nonresponsive_self_not_down_high_expressed);%point2point_genes
+ToHighGenes = unique([responsive_genes; pheno_genes]); % this is the responsive gene set for integration use
+ToZeroGenes = setdiff(nonresponsive_genes, nonresponsive_self_not_down_high_expressed);% this is the non-responsive gene set for integration use
 
-% get a sense of impact
+% get a sense of impact - the following can be ignored
 ExpCateg
 length(intersect(ToHighGenes, ExpCateg.high))
 length(intersect(ToHighGenes, ExpCateg.dynamic))
@@ -206,9 +216,10 @@ length(intersect(ToZeroGenes, ExpCateg.zero))
 ExpCateg_expression = ExpCateg;
 ExpCateg.responsive = ToHighGenes;
 ExpCateg.nonresponsive = ToZeroGenes;
+% save for use in iMAT-WPS
 save(['input/WPS/categ_expression_and_WPS.mat'],'ExpCateg');
 
-%% plot 
+%% VISUALIZATION: plot the responsiveness pie chart
 % pie chart of responsiveness 
 figure;
 tmp = rmfield(ExpCateg,{'zero','low','dynamic','high'});
