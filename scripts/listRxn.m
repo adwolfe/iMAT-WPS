@@ -23,8 +23,8 @@ myfluxP = flux(ismember(model.rxns,myrxns)) .*  model.S(strcmp(model.mets,myMet)
 for i = 1:length(myrxns)
     mytbl(i,1) = myrxns(i);
     mytbl(i,2) = {flux(strcmp(model.rxns,myrxns{i}))};
-    mytbl(i,3) = printRxnFormula_XL(model, myrxns{i},false);
-    mytbl(i,4) = printRxnFormula(model, myrxns{i});
+    mytbl(i,3) = printRxnFormula_XL(model, myrxns{i},0);
+    mytbl(i,4) = printRxnFormula(model, myrxns{i},0);
 end
 mytbl(:,5) = mat2cell(myfluxP,ones(length(myfluxP),1),1);
 mytbl = sortrows(mytbl,5);

@@ -66,3 +66,41 @@ pheatmap(mat, color = color_palette,breaks = seq1
 )
 
 dev.off()
+
+
+# show ahcy1 and cbs-1
+pdf('figures/DE_similarity_example_pair_heatmap.pdf',width = 10,height = 12)
+upperl = 0.5
+seq1 = seq(-upperl,upperl,length.out = 100)
+cl_cosine = fastcluster::hclust(as.dist(1-as.matrix(input)), method = 'complete') # for reproducibility; the original hclust can produce the same tree but with same-height branches reordered!
+color_palette <- rev(colorRampPalette(c("red", "grey100", "blue"))(100))
+pheatmap(input, color = color_palette,breaks = seq1
+         ,show_rownames = F,show_colnames = F
+         ,annotation_col = ann2[,-which(colnames(ann2) %in% c('conID','WBID','RNAiName','wormPath')),drop = F]
+         ,annotation_colors = ann_col
+         ,fontsize = 7,annotation_legend = F
+         ,cellheight = 1,cellwidth = 1
+         ,cluster_rows = cl_cosine,cluster_cols = cl_cosine
+)
+
+
+# produce the labeling heatmap 
+df = read.csv('input/WPS/DEsim_table_integration_summary.csv')
+df = df[df$mets == 'hcys-L[c]',]
+df$pair_gene1 = str_replace_all(df$pair_gene1,'\\.','_')
+df$pair_gene2 = str_replace_all(df$pair_gene2,'\\.','_')
+mat = matrix(data = 0, nrow = nrow(input), ncol = ncol(input))
+mat = as.data.frame(mat)
+colnames(mat) = str_replace_all(colnames(input),'\\.','_')
+rownames(mat) = str_replace_all(rownames(input),'\\.','_')
+for (i in 1:nrow(df)){
+  mat[df$pair_gene1[i], df$pair_gene2[i]] = 1
+}
+pheatmap(mat, color = color_palette,breaks = seq1
+         ,show_rownames = F,show_colnames = F
+         ,fontsize = 7,annotation_legend = F
+         ,cellheight = 1,cellwidth = 1
+         ,cluster_rows = cl_cosine,cluster_cols = cl_cosine
+)
+
+dev.off()
