@@ -5,12 +5,12 @@
 % input files needed for running iMAT-WPS.
 
 mkdir(['input/WPS/']);
-addpath ./../../MetabolicLibrary/7_FBA_modeling/PlotPub/lib/
+addpath scripts/PlotPub/lib/
 
 %% I: the absolute gene expression integration
 %% load the absolute expression data
 % we load the TPM calculated by combining the entire WPS dataset
-TPM = readtable('./../../MetabolicLibrary/1_QC_dataCleaning/outputs/WT_TPM.csv','ReadRowNames',1);
+TPM = readtable('input/WPS/WT_TPM.csv','ReadRowNames',1);
 TPM.Properties.RowNames = TPM.WBID;
 load('./input/model/makeWormModel/iCEL1314_withUptakes.mat');
 % (specific to worm model)
@@ -140,11 +140,11 @@ plt.export(['figures/absolute_expression_categorization_piechart.pdf']);
 %% II: integrate the DE responsiveness
 %% first do some data cleaning before use
 % the genes carrying flux
-DEtbl = readtable('./../../MetabolicLibrary/2_DE/output/DE_merged_clean_pcutoff_0.005_master_table_FDR2d0.1_FC1.5_FCtype_log2FoldChange_raw_ALL.csv');
+DEtbl = readtable('input/WPS/DE_merged_clean_pcutoff_0.005_master_table_FDR2d0.1_FC1.5_FCtype_log2FoldChange_raw_ALL.csv');
 % conditionInfo = readtable('./../../MetabolicLibrary/2_DE/output/RNAi_condition_metaInfo.csv');
 % 12302023: update to final publish-version data in which four conditions
 % was wrong targeted gene annotations (all nonresponsive) were corrected
-conditionInfo = readtable('./../../MetabolicLibrary/data_and_tables_to_publish/RNAi_condition_information.csv');
+conditionInfo = readtable('input/WPS/RNAi_condition_information.csv');
 % to be consistent with the model annotation, we still use the mrpl-44 as
 % mccc-2
 conditionInfo.RNAi_WBID(strcmp(conditionInfo.RNAiID,'x.mrpl_44 met3_lib1')) = {'WBGene00008514'};
@@ -162,7 +162,7 @@ responsive_WBID = conditionInfo.RNAi_WBID(strcmp(conditionInfo.isResponsive,'TRU
 responsive_genes = unique(lookupTbl.ICELgene(B(A)));
 
 % Second, all phenotypic genes should be responsive category
-pheno = readtable('./../../MetabolicLibrary/input_data/metaData/not sequenced RNAis because of strong phenotype.csv','ReadVariableNames',1);
+pheno = readtable('input/WPS/not sequenced RNAis because of strong phenotype.csv','ReadVariableNames',1);
 [A,B] = ismember(pheno.WBID,lookupTbl.WormBase_Gene_ID);
 pheno_genes = unique(lookupTbl.ICELgene(B(A)));
 

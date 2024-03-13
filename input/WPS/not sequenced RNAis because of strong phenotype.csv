@@ -1,0 +1,19 @@
+﻿WBID,GENE_name,RNAi_position,plateID_image_folder,seeding time,annotation,if did RNAseq,seeding stage of RNAseq samples,phenotype_of image codition,Phenotype of RNAseq samples,
+WBGene00006918,vha-9,plate12-B9,plate12,L2,,no,NA,Thin,NA,
+WBGene00002010,hsp-6,plate12-E1,plate12,L3,,no,NA,Thin,NA,
+WBGene00009342,fasn-1,plate12-E4,plate12,L3,,no,NA,Very Thin,NA,
+WBGene00006913,vha-4,plate12-E6,plate12,L3,,no,NA,Very Thin,NA,
+WBGene00006910,vha-1,plate12-E10,plate12,L3,,no,NA,Thin,NA,
+WBGene00006917,vha-8,plate12-E11,plate12,L3,,no,NA,Very Thin,NA,
+WBGene00006920,vha-11,plate12-F3,plate12,L3,,no,NA,normal,NA,
+WBGene00000229,atp-2,plate12-F4,plate12,L3,,no,NA,Slow development:L4,NA,
+WBGene00015298,C01F1.3,plate14-A3,plate14,L1,,no,NA,L4 lethal,NA,
+WBGene00002152,iars-1,plate5-G9,met5,L1,,no,NA,Slow development:L4,NA,"because of space, I didn’t try later stage"
+WBGene00004189,pars-1,plate5-G11,met5,L1,,no,NA,Slow development:L3,NA,"because of space, I didn’t try later stage"
+WBGene00005663,sars-1,plate5-H1,met5,L1,,no,NA,Slow development:L3,NA,"because of space, I didn’t try later stage"
+WBGene00020507,vha-15,plate5-H2,met5,L1,,no,NA,Slow development:L3,NA,"because of space, I didn’t try later stage"
+WBGene00006912,vha-3,plate5-H7,met5,L1,,no,NA,Slow development:L3,NA,"because of space, I didn’t try later stage"
+WBGene00001744,gars-1,plate5-H11,met5,L1,,no,NA,normal,NA,"because of space, I didn’t try later stage"
+WBGene00013025,vha-13,plate11-D8,met5,L1,,no,NA,Slow development:L2,NA,"because of space, I didn’t try later stage"
+WBGene00000160,apb-1,plate4-B8,met4,L1,,no,NA,"Thin, Slow development:L3",NA,"because of space, I didn’t try later stage"
+WBGene00006921,vha-12,plate4-H5,met4,L1,,no,NA,Slow development:L1,NA,"because of space, I didn’t try later stage"

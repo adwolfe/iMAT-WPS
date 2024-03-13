@@ -3,14 +3,14 @@ library(stringr)
 
 
 # reproduce the heatmap
-input = read.csv('./../../MetabolicLibrary/2_DE/output/cosineSimilarity_FC_denoised_stationery_metabolic.csv',row.names = 1)
-N_DETbl = read.csv('./../../MetabolicLibrary/2_DE/output/RNAi_condition_metaInfo.csv',row.names = 1)
-WBID = read.csv('./../../MetabolicLibrary/input_data/otherTbls/WBIDtbl.txt',sep = '\t')
+input = read.csv('input/WPS/cosineSimilarity_FC_denoised_stationery_metabolic.csv',row.names = 1)
+N_DETbl = read.csv('input/WPS/RNAi_condition_metaInfo.csv',row.names = 1)
+WBID = read.csv('input/WPS/WBIDtbl.txt',sep = '\t')
 ann2 = data.frame(conID = colnames(input))
 ann2$log2NDE = log2(N_DETbl$N_DE_targetExcluded[match(ann2$conID, str_replace(N_DETbl$RNAiID,' ','_'))])
 rownames(ann2) = ann2$conID
-wormPath = read.csv('./../../MetabolicLibrary/input_data/otherTbls/WormPaths_Tables/wormPathTable.csv')
-wormpathLevels = read.csv('./../../MetabolicLibrary/input_data/otherTbls/WormPaths_Tables/LEVEL1_GENES.csv',header = F)
+wormPath = read.csv('input/model/wormPathTable.csv')
+wormpathLevels = read.csv('input/model/LEVEL1_GENES.csv',header = F)
 ann2$RNAiName = N_DETbl$RNAi_geneName[match(ann2$conID, str_replace(N_DETbl$RNAiID,' ','_'))]
 ann2$WBID = N_DETbl$RNAi_WBID[match(ann2$conID, str_replace(N_DETbl$RNAiID,' ','_'))]
 ann2$wormPath = wormPath$LEVEL.1[match(ann2$WBID, wormPath$WormBase.ID)]
@@ -104,3 +104,4 @@ pheatmap(mat, color = color_palette,breaks = seq1
 )
 
 dev.off()
+

@@ -60,7 +60,7 @@ ggsave(file="figures/stacked_pie_gene_category_summary.pdf", plot=p,width=8, hei
 
 
 # plot the DEG distribution for iCEL genes only 
-conditionInfo = read.csv('./../../MetabolicLibrary/data_and_tables_to_publish/RNAi_condition_information.csv')
+conditionInfo = read.csv('input/WPS/RNAi_condition_information.csv')
 conditionInfo = conditionInfo[conditionInfo$isICEL, ]
 N_DE = conditionInfo$N_DE_targetExcluded
 sum(N_DE == 0)
