@@ -1,10 +1,8 @@
 %% add paths
 addpath ~/cobratoolbox/% your cobra toolbox path
 addpath /share/pkg/gurobi/900/linux64/matlab/% the gurobi path
-addpath ./../bins/
-addpath ./../input/
 addpath scripts/
-addpath ./../../MetabolicLibrary/9_FBA_modeling/PlotPub/lib/
+addpath scripts/PlotPub/lib/
 initCobraToolbox(false);
 
 %% summary - part I

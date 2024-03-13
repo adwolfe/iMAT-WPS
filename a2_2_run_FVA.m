@@ -6,8 +6,6 @@
 % add paths
 addpath ~/cobratoolbox/% your cobra toolbox path
 addpath /share/pkg/gurobi/900/linux64/matlab/% the gurobi path
-addpath ./../bins/
-addpath ./../input/
 addpath scripts/
 addpath scripts/parfor_wait/
 
