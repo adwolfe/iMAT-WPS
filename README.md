@@ -28,7 +28,7 @@ To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scr
 ### Step 1: Preprocessing of WPS data to generate inputs for integration
 * __a1_analyze_responsiveness_constraints.m__: This script interactively analzyes the gene expression levels in WT controls of WPS dataset as well as the WPS responsiveness. This includes statistical modeling, data inspections and visualizations, followed by producing the ready-to-use inputs for running iMAT-WPS integration.
 * __a1_analyze_DEsimilarity_constraints.m__: This includes the code to interactively analyze the perturbation-perturbation similarities of WPS dataset, starting with the cosine similarity matrix. It involves several filtering, table inspection and plotting to produce the ready-to-use inputs for running iMAT-WPS integration. It also includes sanity checks to make sure perturbation-perturbation data is consistent with hypothesis assumptions.
-* __(optional) a1_make_labeled_DEsim_heatmap.R__ and __a1_make_stacked_pie_chart.R__: R scripts to make __Fig. 3b, d__ (e.g., the labeled panel '__d__' in the above figure).
+* __(optional) a1_make_labeled_DEsim_heatmap.R__ and __a1_make_stacked_pie_chart.R__: R scripts to make __Fig. 2c, d__ (e.g., the labeled panel '__c, d__' in the above figure).
 
 ### Step 2: Run iMAT-WPS integration 
 * __a2_1_run_integrations.m__: a master script to run different types of integrations, including the iMAT-WPS triple integration or dual integrations that only integrates two of the tree inputs. It also contains only integrating expression levels (i.e., iMAT++) and no integration control.
@@ -59,5 +59,5 @@ We tried our best to ensure the codes are well commented and readable. However, 
 
 ## Contact
 
-Any questions or suggestions on reproducing iMAT-WPS analysis or testing it in other systems/datasets are welcomed! Please contact Xuhang Li [xuhang.li\@umassmed.edu](mailto:xuhang.li@umassmed.edu) for questions!
+Any questions or suggestions on reproducing iMAT-WPS analysis or testing it in other systems/datasets are welcomed! Please contact Xuhang Li [xuhang.li@umassmed.edu](mailto:xuhang.li@umassmed.edu) for questions!
 
