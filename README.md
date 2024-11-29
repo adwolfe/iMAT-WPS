@@ -13,7 +13,7 @@ In our study, we first experimentally estabolished proof-of-concept of these two
 
 
 For further reading about iMAT-WPS and insights it reveals on flux wiring in _C. elegans_, please refer to our paper: 
-[Title and authors](https://bioRxiv_link)
+[A systems-level, semi-quantitative landscape of metabolic flux in C. elegans. _Nature_, in press](https://bioRxiv_link)
 
 _Please note that the main purpose of this repository is to provide source codes to reproduce the study. However, iMAT-WPS is also a standalone algorithm that allows application to other similar datasets. Due to the complexity of integrating large-scale dataset like WPS data, we did not make toy-dataset-based walkthrough of the algorithm. Rather, even application is desired, we recommend users following the steps for reproducing our results while replacing input data and interactively develop your pipelines. It remains important to follow the steps to preprocess and filter the data before running main integration function._
 
@@ -37,23 +37,27 @@ To reproduce the iMAT-WPS integration of metabolic gene WPS dataset, run the scr
 * __a2_3_compare_diff_integrations.m__: a wrapper function to conveniently generate a summary table of OFD, FVA intervals, whether a reaction is bounded, and these values across different integrations.
 * __a2_4_prediction_mechanism_analysis.m__: Analyzing the prediction mechanism (which data drives which flux prediction) by Leave-One-Out (LOO) and Leave-One-In (LOI) analysis.
   * Notice: although this script contains the codes to perform LOO and LOI on a local machine (a laptop or desktop), systematic LOO and LOI analysis is computationally expansive, due to the recursive excecution of iMAT-WPS and its FVA. We performed the analysis in a computational cluster using wrapper codes in [cluster_codes_for_mechanisms](cluster_codes_for_mechanisms) folder. These cluster scripts can be usable in a cluster based on LSF scheduler. Unfortunately, we cannot develop a more generally applicable function for other clusters.
-* __(optional) a2_make_euler_plot.R__: R script to make __Extended Data Fig. 3b, c__.
+* __a2_5_prediction_sensitivity_analysis.m__: Analyzing the sensitivity of predictions using subsampling analysis. This script performs the visualization of sensitivity analysis. The actual analysis was performed in a computational cluster using wrapper codes in [cluster_codes_for_sensitivity](cluster_codes_for_sensitivity) folder. These cluster scripts can be usable in a cluster based on LSF scheduler. Unfortunately, we cannot develop a more generally applicable function for other clusters.
+* __(optional) a2_make_euler_plot.R__: R script to make __Extended Data Fig. 3e, f__.
 
 ### Step 3: post-integration analysis
-* __a3_responsiveness_randomization_nonrespRxn_flux.m__: randomization analysis to determine whether the fitting of resonsiveness data is significantly self-consistent. Related to __Fig. 2e,f__.
-* __a3_DE_similarity_randomization_metFitLoss.m__: randomization analysis to determine whether the fitting of real perturbation-perturbation similarity data is significantly less conflicting with the fitting of responsiveness and expression levels. Related to __Fig. 2g__.
-* __a4_case_study_PPP_cycle_screen_for_causal_genes.m__, __a4_case_study_PPP_cycle_responsiveness_mechanism.m__, __a4_case_study_PPP_cycle_interaction_with_similarity.m__: scripts to perform the case study of the prediction mechanism of cyclic PPP. Related to __Fig. 3b,c__.
-* __a4_case_study_PPshunt_msa.m__: scripts to perform the case study of the flux solution space of propionate shunt. Related to the confidence level of flux related to msa in __Fig. 3a__.
+* __a3_responsiveness_randomization_nonrespRxn_flux.m__: randomization analysis to determine whether the fitting of resonsiveness data is significantly self-consistent.
+* __a3_DE_similarity_randomization_metFitLoss.m__: randomization analysis to determine whether the fitting of real perturbation-perturbation similarity data is significantly less conflicting with the fitting of responsiveness and expression levels.
+* __a4_case_study_PPP_cycle_screen_for_causal_genes.m__, __a4_case_study_PPP_cycle_responsiveness_mechanism.m__, __a4_case_study_PPP_cycle_interaction_with_similarity.m__: scripts to perform the case study of the prediction mechanism of cyclic PPP.
 * __a4_figure_making_assist.m__: the helper function to interactively determine the arrow width and confidence level of all fluxes visualized in __Fig. 3a__. The arrow width produced in this script was use to first draw the flux distribution cartoon in a U.S. letter page in Illustrator. This script is provided for reproducibility purpose.
-* __a4_study_a_case.m__: outdated script and will be removed in the next update. 
+* __a5_energy_efficiency.m__: FBA simulations to measure the maximal ATP production by in silico degrading each biomass component of a bacteria. 
 
+### Other files 
+* __extract_DEsimilarity_constraints.m__ and __extract_responsiveness_constraints.m__: helper functions used in the sensitivity analysis. Keep in this root folder.
+  
 ### Folders
 * __input__: inputs for iMAT-WPS analysis including the metabolic network model and WPS data. 
 * __output__: pre-stored outputs of modeling results. Used for making the figures in the paper.
 * __figures__: raw figures used for making the paper. These figures were the input for final figure making in Illustrator.
 * __scripts__: functions involved in iMAT-WPS. It may contain unused function(s) for historical reason. 
 * __cluster_codes_for_mechanisms__: codes to run LOO and LOI analysis in a computation cluster with LSF scheduler system.
-  
+* __cluster_codes_for_sensitivity__: codes to run subsampling-based sensitivity analysis in a computation cluster with LSF scheduler system.
+* __REVISION__: codes for additional analysis performed during paper revision
 
 We tried our best to ensure the codes are well commented and readable. However, if you encounter any questions, please feel free to reach out (see below for __Contacts__)! We are particularly interested in assisting anyone who wants to apply and test iMAT-WPS in other systems!
 
