@@ -95,5 +95,5 @@ For those interested in reproducing a particular figure (or its source data) in 
 
 ## Contact
 
-Any questions or suggestions on reproducing iMAT-WPS analysis or testing it in other systems/datasets are welcomed! Please contact Xuhang Li [xuhang.li@umassmed.edu](mailto:xuhang.li@umassmed.edu) for questions!
+Any questions or suggestions on reproducing iMAT-WPS analysis or testing it in other systems/datasets are welcome! Please contact Xuhang Li [xuhang.li@umassmed.edu](mailto:xuhang.li@umassmed.edu) for questions!
 
